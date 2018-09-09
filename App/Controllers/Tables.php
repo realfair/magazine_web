@@ -1,0 +1,23 @@
+<?php 
+
+class Tables {
+	public function users(){
+		return 'system_users';
+	}
+	public function articles_categories(){
+		return 'articles_categories';
+	}
+	public function articles(){
+		return 'articles';
+	}
+	public function advert_categories(){
+		return 'advert_categories';
+	}
+	public function banners(){
+		return 'banners';
+	}
+	public function articles_posters(){
+		return 'articles_posters';
+	}
+}
+?>
