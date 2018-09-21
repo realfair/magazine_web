@@ -10,7 +10,8 @@ class Article extends Execute{
 	}
 	//function to save article
 	public function save_article($title,$sub_title,$body,$category_id,$author_id){
-		$array=array("category_id"=>$category_id,"sub_title"=>$sub_title,"title"=>$title,"text"=>$body,"status"=>'SUBMITTED','author_id'=>$author_id);
+		$today=date("Y-m-d");
+		$array=array("category_id"=>$category_id,"sub_title"=>$sub_title,"title"=>$title,"text"=>$body,"status"=>'SUBMITTED','author_id'=>$author_id,"validate_date"=>$today);
 		return $this->multi_insert(Tables::articles(),$array);
 	}
 	//function to update article
@@ -51,8 +52,15 @@ class Article extends Execute{
 	}
 	//save new article poster
 	public function save_article_poster($article_id,$filename){
-		$array=array("article_id"=>$article_id,"filename"=>$filename,"status"=>'ACTIVE');
-		return $this->multi_insert(Tables::articles_posters(),$array);
+		$data=array("status"=>'PENDING');
+		$where=array("article_id"=>$article_id);
+		$status=$this->query_update(Tables::articles_posters(),$where,$data);
+		if($status){
+			$array=array("article_id"=>$article_id,"filename"=>$filename,"status"=>'ACTIVE');
+			return $this->multi_insert(Tables::articles_posters(),$array);
+		}else{
+			return false;
+		}
 	}
 	//check if article has poster
 	public function check_article_poster($article_id){
@@ -68,7 +76,7 @@ class Article extends Execute{
 	}
 	//get article poster
 	public function get_article_poster($article_id){
-		$credentials=array("article_id"=>$article_id);
+		$credentials=array("article_id"=>$article_id,"status"=>'ACTIVE');
 		return $this->select_multi_clause(Tables::articles_posters(),$credentials);
 	}
 	//get articles based on status
@@ -80,6 +88,15 @@ class Article extends Execute{
 	public function get_articles_number(){
 		return $this->table_rows(Tables::articles());
 	}
+
+
+	############################# PUBLIC WEBSITE SECTION ####################################
+	public function get_featured_posts(){
+		$credentials=array("status"=>Tables::publish_status());
+		return $this->select_order_limit(Tables::articles(),$credentials,'article_id',9,false);
+	}
+	
+	############################ END OF PUBLIC WEBSITE SECTION ##############################
 }
 $article=new Article();
 ?>

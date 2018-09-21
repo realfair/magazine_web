@@ -1,0 +1,5 @@
+ErrorDocument 404 http://localhost/magazine_web/public/404.html
+# Turn Rewrite Engine On
+RewriteEngine on
+# Rewrite for index.php script
+RewriteRule ^index$ public_web.php [NC,L]

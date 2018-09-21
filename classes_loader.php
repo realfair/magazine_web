@@ -1,5 +1,5 @@
 <?php
-$root_url=$_SERVER['DOCUMENT_ROOT'].'/e/';
+$root_url=__DIR__.'/';
 //core modules
 require_once $root_url.'App/Core/Database.php';
 require_once $root_url.'App/Core/Query.php';

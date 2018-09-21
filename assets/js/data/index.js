@@ -50,9 +50,7 @@ $(document).ready(function(){
 			input[6]=current_article;
 			saveData(input,"dashboard?action=articles&status=success");
 		}else{
-			if(body.length>=5){
-				saveData(input,"dashboard?action=articles&status=success");
-			}
+			saveData(input,"dashboard?action=articles&status=success");
 		}
 		
 	});
@@ -162,7 +160,8 @@ function saveData(input,redirectUrl){
 		input:input
 	},function(response){
 		if(response.match("200")){
-			window.location=redirectUrl;
+			alert(response);
+			//window.location=redirectUrl;
 		}else{
 			alert(response);
 		}

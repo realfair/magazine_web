@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/e/classes_loader.php';
+require $_SERVER['DOCUMENT_ROOT'].'/magazine_web/classes_loader.php';
 $success="200";
 $error="403";
 if(isset($_POST['input'])){
@@ -43,13 +43,14 @@ if(isset($_POST['input'])){
 			$title=$input[1];
 			$description=$function->sanitize($input[2]);
 			$category=$function->sanitize($input[3]);
-			$body=$input[4];
+			$body=htmlspecialchars($input[4]);
 			$author_id=$function->sanitize($input[5]);
+			//echo $description;
 			$save_status=$article->save_article($title,$description,$body,$category,$author_id);
 			if($save_status){
-				echo $success;
+				echo "saved now";
 			}else{
-				echo $error;
+				echo "Errors Please";
 			}
 		}elseif($action=="update_article"){
 			$title=$input[1];

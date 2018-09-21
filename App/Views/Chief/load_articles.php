@@ -1,5 +1,5 @@
 <?php 
-require_once $_SERVER['DOCUMENT_ROOT'].'/e/classes_loader.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/magazine_web/classes_loader.php';
 ?>
 <div class="content-page">
 <!-- Start content -->

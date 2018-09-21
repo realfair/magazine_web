@@ -19,5 +19,9 @@ class Tables {
 	public function articles_posters(){
 		return 'articles_posters';
 	}
+
+	public function publish_status(){
+		return 'PUBLISHED';
+	}
 }
 ?>

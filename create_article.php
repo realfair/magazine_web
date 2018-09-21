@@ -1,6 +1,6 @@
 <?php 
 require 'App/Views/Utils/auth.php';
-require $_SERVER['DOCUMENT_ROOT'].'/e/classes_loader.php';
+require __DIR__.'/classes_loader.php';
 $user_type=(int)$_SESSION['user_type'];
 $user_id=(int)$_SESSION['user_id'];
 if(isset($_GET['action']) && $_GET['action']=="edit"){

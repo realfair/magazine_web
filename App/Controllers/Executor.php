@@ -184,6 +184,32 @@ class Execute extends Query{
 			return "INVALID INPUTS";
 		}
 	}
+	public function select_order_limit($table,$credentials,$order_by,$limit,$status){
+		$output=array();
+		if(is_array($credentials)){
+			$query="SELECT *";
+			$query.=" FROM ".$table." WHERE ";
+			$j=0;
+			foreach ($credentials as $key => $value) {
+				$query.=$key.'='."\"".$value."\"";
+				if($j<(count($credentials)-1)){
+					$query.=" AND ";
+				}
+				$j++;
+			}
+			$query.=" ORDER BY ".$order_by;
+			if($status){
+				$query.=" ASC";
+			}else{
+				$query.=" DESC";
+			}
+			$query.=" LIMIT ".$limit;
+			$output=$this->select($query);
+			return $output;
+		}else{
+			return "INVALID INPUTS";
+		}
+	}
 	public function row_counter($table,$credentials){
 		$output=0;
 		if(is_array($credentials)){
