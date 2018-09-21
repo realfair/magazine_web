@@ -51,7 +51,20 @@ if(isset($_POST['input'])){
 			}else{
 				echo $error;
 			}
-		}elseif($action=="publish_article"){
+		}elseif($action=="update_article"){
+			$title=$input[1];
+			$description=$function->sanitize($input[2]);
+			$category=$function->sanitize($input[3]);
+			$body=$input[4];
+			$article_id=(int)$function->sanitize($input[6]);
+			$status=$article->check_article_id($article_id);
+			if($status){
+				
+			}else{
+				echo $error;
+			}
+		}
+		elseif($action=="publish_article"){
 			//grab inputs
 			$article_id=$function->sanitize($input[1]);
 			$article_status='PUBLISHED';

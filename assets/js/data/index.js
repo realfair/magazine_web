@@ -46,7 +46,9 @@ $(document).ready(function(){
 		input[4]=body;
 		input[5]=current_user;
 		if(current_article!=null && current_article!=undefined){
-			alert("Can Only Update Article");
+			input[0]="update_article";
+			input[6]=current_article;
+			saveData(input,"dashboard?action=articles&status=success");
 		}else{
 			if(body.length>=5){
 				saveData(input,"dashboard?action=articles&status=success");

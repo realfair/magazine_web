@@ -13,6 +13,11 @@ class Article extends Execute{
 		$array=array("category_id"=>$category_id,"sub_title"=>$sub_title,"title"=>$title,"text"=>$body,"status"=>'SUBMITTED','author_id'=>$author_id);
 		return $this->multi_insert(Tables::articles(),$array);
 	}
+	//function to update article
+	public function update_article($article_id,$title,$sub_title,$body,$category_id,$author_id){
+		$where=array("");
+		return $this->query_update(Tables::articles(),$where,$array);
+	}
 	//get all articles
 	public function get_recent_articles(){
 		return $this->select_all_order_by(Tables::articles(),'article_id',false);
