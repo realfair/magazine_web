@@ -93,12 +93,6 @@ function backHome(){
             $router->loadView("Home/sidebar");
             ?>
             <!-- Left Sidebar End -->
-
-
-
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
             <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
@@ -129,75 +123,7 @@ function backHome(){
                         <div class="row">
                             <?php 
                             if(isset($_GET['action']) && $_GET['action']=="edit"){
-                                ?>
-                            <div class="col-sm-3">
-                              <div class="col-lg-12">
-                                <div class="panel panel-color panel-primary">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">Article Number:<?php echo $article_id; ?></h3>
-                                    </div>
-                                    <div class="panel-body">
-                                        <form>
-                                            <div class="form-group">
-                                                <label>Change Article Status</label>
-                                                <select class="form-control">
-                                                    <option value="PUBLISHED">
-                                                        Published Online
-                                                    </option>
-                                                    <option value="SUBMITTED">
-                                                        Submitted For evaluation
-                                                    </option>
-                                                    <option value="DELETED">
-                                                        Removed To Dustbin
-                                                    </option>
-                                                </select>
-                                                <button type="submit" class="btn btn-teal btn-sm" style="margin: 5px;">
-                                                    CHANGE
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                              </div>
-                              <div class="col-lg-12">
-                                <div class="panel panel-color panel-primary">
-                                    <div class="panel-heading">
-                                        <h5 class="panel-title">Article Poster Image</h5>
-                                    </div>
-                                    <div class="panel-body">
-                                        <form id="frm_upload_poster">
-                                            <div class="form-group">
-                                                <label>Select Article Logo</label>
-                                                <input id="poster" type="file" name="poster" required>
-                                                <input id="article_id" type="hidden" name="article_id" value="<?php echo $article_id; ?>">
-                                                <?php 
-                                                $check_poster=$article->check_article_poster($article_id);
-                                                if($check_poster){
-                                                    $posters=$article->get_article_poster($article_id);
-                                                    foreach ($posters as $key => $poster) {
-                                                        ?>
-                                                        <img src="assets/IMG/<?php echo $poster['filename']; ?>" class="col-lg-12" style="margin-top: 5px;" id="preview">
-                                                        <?php
-                                                    }
-                                                    ?>
-                                                    <?php
-                                                }else{
-                                                    ?>
-                                                    <img src="" class="col-lg-12" style="margin-top: 5px;" id="preview">
-                                                    <?php
-                                                }
-                                                ?>
-                                                
-                                                <button type="submit" class="btn btn-teal btn-sm" style="margin: 5px;">
-                                                    UPLOAD
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                              </div>
-                            </div>
-                                <?php
+                                include 'App/Views/Article/article_poster_section.php';
                             }
                             ?>
 							<div class="col-sm-<?php echo (isset($_GET['action']) && $_GET['action']=='edit')?'9':'12';?>">
@@ -248,6 +174,7 @@ function backHome(){
                                                     </div>
                                                     <textarea id="elm1"><?php echo $value['text']; ?></textarea>
                                                     <div class="form-group" style="margin: 10px;">
+                                                        <input id="click_counter" type="hidden" name="" value=0>
                                                       <button type="submit" class="btn btn-primary btn-bordered waves-effect w-md waves-light m-b-5">SAVE ARTICLE</button>
                                                       <a href="#" class="btn btn-default btn-bordered waves-effect w-md m-b-5">CANCEL</a>
                                                     </div>
@@ -255,48 +182,28 @@ function backHome(){
                                                 }
                                             }
                                         }else{
-                                            ?>
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">
-                                                        Article Title
-                                                    </label>
-                                                    <input id="title" type="text" class="form-control" name="" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">
-                                                        Article Brief Description
-                                                    </label>
-                                                    <textarea id="description" class="form-control" rows="3"></textarea>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">
-                                                        Select Article Category
-                                                    </label>
-                                                    <?php 
-                                                    $categories=$article->get_articles_categories();
-                                                    ?>
-                                                    <select id="category" class="form-control" required>
-                                                        <?php 
-                                                        foreach ($categories as $key => $value) {
-                                                            ?>
-                                                            <option value="<?php echo $value['category_id']; ?>">
-                                                                <?php echo $value['name']; ?>
-                                                            </option>
-                                                            <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                                <textarea id="elm1"></textarea>
-                                                <div class="form-group" style="margin: 10px;">
-                                                  <button type="submit" class="btn btn-primary btn-bordered waves-effect w-md waves-light m-b-5">SAVE ARTICLE</button>
-                                                  <a href="#" class="btn btn-default btn-bordered waves-effect w-md m-b-5">CANCEL</a>
-                                                </div>
-                                            <?php
+                                            include 'App/Views/Article/new_article_form.php';
                                         }
                                         ?>
 									</form>
 								</div>
+                                <?php 
+                                if(isset($_GET['action']) && $_GET['action']=="edit" && isset($_GET['article'])){
+                                    ?>
+                                    <div class="col-lg-12">
+                                        <div class="panel panel-border panel-primary">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Available Attachments</h3>
+                                            </div>
+                                            <div id="output_sect" class="panel-body">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    include 'App/Views/Article/document_section.php';
+                                }
+                                ?>
 							</div>
 						</div>
                         <!-- End row -->

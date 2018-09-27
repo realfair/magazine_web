@@ -1,5 +1,5 @@
 <?php 
-require_once $_SERVER['DOCUMENT_ROOT'].'/magazine_web/classes_loader.php';
+//require_once $_SERVER['DOCUMENT_ROOT'].'/magazine_web/classes_loader.php';
 ?>
 <div class="content-page">
 <!-- Start content -->
@@ -73,70 +73,79 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/magazine_web/classes_loader.php';
                             	foreach ($recent_articles as $key => $value) {
                                     $posters=$article->get_article_poster($value['article_id']);
                                     $category_name=$article->get_articles_category_name($value['category_id']);
-                            		?>
-	                                <tr>
-	                                    <th>
-                                            <?php 
-                                            if(count($posters)>0){
-                                                foreach ($posters as $key => $poster) {
-                                                   ?>
-                                                   <img src="assets/IMG/<?php echo $poster['filename']; ?>" class="img-responsive" style="width:100px;">
-                                                   <?php
+                            		if($value['status']!='TRASHED'){
+                                        ?>
+                                        <tr>
+                                            <th>
+                                                <?php 
+                                                if(count($posters)>0){
+                                                    foreach ($posters as $key => $poster) {
+                                                       ?>
+                                                       <img src="assets/IMG/<?php echo $poster['filename']; ?>" class="img-responsive" style="width:100px;">
+                                                       <?php
+                                                    }
                                                 }
-                                            }
-                                            ?>
-	                                    </th>
-	                                    <td>
-	                                        <h5 class="m-0">
-	                                        	<a href="add_article?action=edit&article=<?php echo $value['article_id']; ?>">
-                                                    <strong>
-                                                        <?php echo($value['title']); ?>
-                                                    </strong>
-                                                          
-                                                </a>
-	                                        </h5>
-	                                    </td>
-	                                    <td>
-                                         <?php echo $category_name; ?>   
-                                        </td>
-	                                    <td>
-                                         <?php 
-                                         if($value['status']=='PUBLISHED'){
-                                            ?>
-                                            <span class="badge badge-success">
-                                                <?php echo $value['status']; ?>
-                                            </span>
-                                            <?php
-                                         }elseif($value['status']=="SUBMITTED"){
-                                            ?>
-                                            <span class="badge badge-danger">
-                                                <?php echo $value['status']; ?>
-                                            </span>
-                                            <?php
-                                         }
-                                         ?>   
-                                        </td>
-                                        <td>
-                                            <a href="add_article?action=edit&article=<?php echo $value['article_id']; ?>" class="btn btn-primary btn-sm">
-                                                <i class="fa fa-pencil"></i>
-                                            </a>
-                                            <?php 
-                                            if($value['status']=="SUBMITTED"){
                                                 ?>
-                                                <a action="<?php echo $value['article_id']; ?>" class="btn btn-warning btn-sm btn_publish" data-toggle="tooltip" data-placement="top" title data-original-title="Publish Article">
-                                                    <i class="fa fa-eye"></i>
-                                                </a>
-                                                <?php
-                                            }elseif($value['status']=="PUBLISHED"){
+                                            </th>
+                                            <td>
+                                                <h5 class="m-0">
+                                                    <a href="add_article?action=edit&article=<?php echo $value['article_id']; ?>">
+                                                        <strong>
+                                                            <?php echo($value['title']); ?>
+                                                        </strong>
+                                                              
+                                                    </a>
+                                                </h5>
+                                            </td>
+                                            <td>
+                                             <?php echo $category_name; ?>   
+                                            </td>
+                                            <td>
+                                             <?php 
+                                             if($value['status']=='PUBLISHED'){
                                                 ?>
-                                                <a action="<?php echo $value['article_id']; ?>" class="btn btn-success btn-sm btn_unpublish" data-toggle="tooltip" data-placement="top" title data-original-title="Unpublish Article">
-                                                    <i class="fa fa-eye-slash"></i>
-                                                </a>
+                                                <span class="badge badge-success">
+                                                    <?php echo $value['status']; ?>
+                                                </span>
                                                 <?php
-                                            }
-                                            ?>
-                                        </td>
-	                                </tr>
+                                             }elseif($value['status']=="SUBMITTED"){
+                                                ?>
+                                                <span class="badge badge-danger">
+                                                    <?php echo $value['status']; ?>
+                                                </span>
+                                                <?php
+                                             }
+                                             ?>   
+                                            </td>
+                                            <td>
+                                                <?php 
+                                                if($value['status']=="SUBMITTED"){
+                                                    ?>
+                                                    <div class="btn-group m-b-10">
+                                                        <a href="add_article?action=edit&article=<?php echo $value['article_id']; ?>" class="btn btn-primary btn-sm waves-effect">
+                                                            <i class="fa fa-pencil"></i>
+                                                        </a>
+                                                        <a action="<?php echo $value['article_id']; ?>" class="btn btn-warning btn-sm btn_publish" data-toggle="tooltip" data-placement="top" title data-original-title="Publish Article">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                        <a action="<?php echo $value['article_id']; ?>" class="btn btn-danger btn-sm btn_trash" data-toggle="tooltip" data-placement="top" title data-original-title="Move to Trash This Article">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                    <?php
+                                                }elseif($value['status']=="PUBLISHED"){
+                                                    ?>
+                                                    <a action="<?php echo $value['article_id']; ?>" class="btn btn-success btn-sm btn_unpublish" data-toggle="tooltip" data-placement="top" title data-original-title="Unpublish Article">
+                                                        <i class="fa fa-eye-slash"></i>
+                                                    </a>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    ?>
                             		<?php
                             	}
                             	?>

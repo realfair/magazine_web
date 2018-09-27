@@ -20,7 +20,7 @@ $router->loadView("Utils/auth");
                 </form>
             </li>
             <li class="hidden-xs">
-                <a href="#" class="menu-item">New</a>
+                <a href="add_article" class="menu-item">New Article</a>
             </li>
             <li class="dropdown hidden-xs">
                 <a data-toggle="dropdown" class="dropdown-toggle menu-item" href="#" aria-expanded="false">English

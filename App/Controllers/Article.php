@@ -15,8 +15,9 @@ class Article extends Execute{
 		return $this->multi_insert(Tables::articles(),$array);
 	}
 	//function to update article
-	public function update_article($article_id,$title,$sub_title,$body,$category_id,$author_id){
-		$where=array("");
+	public function update_article($article_id,$title,$sub_title,$body){
+		$where=array("article_id"=>$article_id);
+		$array=array("title"=>$title,"sub_title"=>$sub_title,"text"=>$body);
 		return $this->query_update(Tables::articles(),$where,$array);
 	}
 	//get all articles
@@ -40,6 +41,16 @@ class Article extends Execute{
 		$credentials=array("article_id"=>$article_id);
 		return $this->select_multi_clause(Tables::articles(),$credentials);
 	}
+	//get article status
+	public function get_article_status($article_id){
+		$credentials=array("article_id"=>$article_id);
+		$article_info=$this->select_multi_clause(Tables::articles(),$credentials);
+		$article_status="";
+		foreach ($article_info as $key => $value) {
+			$article_status=$value['status'];
+		}
+		return $article_status;
+	}
 	//change article status
 	public function change_article_status($article_id,$status){
 		$where=array("article_id"=>$article_id);
@@ -49,6 +60,30 @@ class Article extends Execute{
 	//get category name from id
 	public function get_articles_category_name($category_id){
 		return $this->field_query(Tables::articles_categories(),"category_id",$category_id,"name");
+	}
+
+	//save article attachments
+	public function save_attachment($article_id,$filename,$extension){
+		$array=array("article_id"=>$article_id,"file_name"=>$filename,"extenstion"=>$extension,"file_type"=>$extension,"status"=>'PENDING');
+		
+		return $this->multi_insert(Tables::attachments(),$array);
+	}
+	//get article documents
+	public function get_documents($article_id){
+		$data=array("status"=>'DELETED');
+		$credentials=array("article_id"=>$article_id);
+		return $this->select_multi_not(Tables::attachments(),$credentials,$data);
+	}
+	//remove article document
+	public function remove_document($attach_id){
+		$data=array("status"=>'DELETED');
+		$where=array("attach_id"=>$attach_id);
+		return $this->query_update(Tables::attachments(),$where,$data);
+	}
+	public function not_test(){
+		$data=array("status"=>'DELETED');
+		$where=array("article_id"=>16);
+		return $this->select_multi_not(Tables::attachments(),$where,$data);
 	}
 	//save new article poster
 	public function save_article_poster($article_id,$filename){

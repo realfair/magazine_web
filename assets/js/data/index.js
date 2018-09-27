@@ -39,6 +39,7 @@ $(document).ready(function(){
 		var description=$("#description").val();
 		var category=$("#category").val();
 		var body=$("#elm1").val();
+		var counter=$("#click_counter").val();
 		input[0]="save_article";
 		input[1]=title;
 		input[2]=description;
@@ -48,11 +49,35 @@ $(document).ready(function(){
 		if(current_article!=null && current_article!=undefined){
 			input[0]="update_article";
 			input[6]=current_article;
-			saveData(input,"dashboard?action=articles&status=success");
+			if(counter==1){
+				saveData(input,"add_article?action=edit&article="+current_article);
+			}else{
+				$("#click_counter").val(1);
+				alert("Please Click Again on button to confirm action.");
+			}
 		}else{
-			saveData(input,"dashboard?action=articles&status=success");
+			if(body.length>=10){
+				saveData(input,"dashboard?action=articles&status=success");
+			}else{
+				alert("Please Click Again on button to confirm action.");
+			}
 		}
 		
+	});
+	$("#frm_change_status").submit(function(e){
+		e.preventDefault();
+		var status=$("#sel_status").val();
+		var action=$("#article").val();
+		if(status!=""){
+		input[0]="change_article_status";
+		input[1]=action;
+		input[2]=status;
+		if(confirm("You Are about to Change Article. status")){
+			saveData(input,"add_article?action=edit&article="+action);
+		}
+		}else{
+			alert("Please select status");
+		}
 	});
 	$("a.btn_publish").click(function(){
 		var action=$(this).attr("action");
@@ -70,7 +95,14 @@ $(document).ready(function(){
 			saveData(input,"dashboard");
 		}
 	});
-
+	$("a.btn_trash").click(function(){
+		var action=$(this).attr("action");
+		input[0]="trash_article";
+		input[1]=action;
+		if(confirm("You Are about to Delete Article But you can still find it trash.")){
+			saveData(input,"dashboard");
+		}
+	});
 	//upload banner
 	$("#file").on("change",function(){
 		var file=document.getElementById("file").files[0];
@@ -152,18 +184,91 @@ $(document).ready(function(){
             }  
        });
 	});
-});
+	//upload multiple documents
+	load_documents(current_article);
+ $('#multiple_files').change(function(){
+	  var error_images = '';
+	  var form_data = new FormData();
+	  var files = $('#multiple_files')[0].files;
+	  if(files.length > 3)
+	  {
+	   error_images += 'You can not select more than 10 files';
+	  }
+	  else
+	  {
+	   for(var i=0; i<files.length; i++)
+	   {
+	    var name = document.getElementById("multiple_files").files[i].name;
+	    var ext = name.split('.').pop().toLowerCase();
+	    if(jQuery.inArray(ext, ['gif','png','jpg','jpeg']) == -1) 
+	    {
+	     error_images += '<p>Invalid '+i+' File</p>';
+	    }
+	    var oFReader = new FileReader();
+	    oFReader.readAsDataURL(document.getElementById("multiple_files").files[i]);
+	    var f = document.getElementById("multiple_files").files[i];
+	    var fsize = f.size||f.fileSize;
+	    if(fsize > 2000000)
+	    {
+	     error_images += '<p>' + i + ' File Size is very big</p>';
+	    }
+	    else
+	    {
+	     form_data.append("file[]", document.getElementById('multiple_files').files[i]);
+	    }
+	   }
+	  }
+	  if(error_images == '')
+	  {
+	  	form_data.append("article",current_article);
+	   $.ajax({
+	    url:"save_document",
+	    method:"POST",
+	    data: form_data,
+	    contentType: false,
+	    cache: false,
+	    processData: false,
+	    beforeSend:function(){
+	     $('#error_multiple_files').html('<br /><label class="text-primary">Uploading...</label>');
+	    },   
+	    success:function(data)
+	    {
+	    	if(data.match("200")){
+	    		$('#error_multiple_files').html('<br /><label class="text-success">Uploaded.</label>');
+	    		load_documents(current_article);
+	    	}else{
+	    		$('#error_multiple_files').html('<br /><label class="text-success">'+data+'</label>');
+	    	}
+	    }
+	   });
+	  }
+	  else
+	  {
+	   $('#multiple_files').val('');
+	   $('#error_multiple_files').html("<span class='text-danger'>"+error_images+"</span>");
+	   return false;
+	  }
+ });
 
-function saveData(input,redirectUrl){
-	var url="save_data";
-	$.post(url,{
-		input:input
-	},function(response){
-		if(response.match("200")){
-			alert(response);
-			//window.location=redirectUrl;
-		}else{
-			alert(response);
-		}
-	});
-}
+ function load_documents(current_article){
+ 	$.post("get_documents",{
+ 		article:current_article
+ 	},function(response){
+ 		$("#output_sect").html(response);
+ 	});
+ }
+
+	function saveData(input,redirectUrl){
+		var url="save_data";
+		$.post(url,{
+			input:input
+		},function(response){
+			if(response.match("200")){
+				//alert(response);
+				window.location=redirectUrl;
+			}else{
+				alert(response);
+			}
+		});
+	}
+});

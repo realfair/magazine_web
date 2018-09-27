@@ -45,22 +45,31 @@ if(isset($_POST['input'])){
 			$category=$function->sanitize($input[3]);
 			$body=htmlspecialchars($input[4]);
 			$author_id=$function->sanitize($input[5]);
-			//echo $description;
+			//echo $body;
+			//die();
 			$save_status=$article->save_article($title,$description,$body,$category,$author_id);
 			if($save_status){
-				echo "saved now";
+				echo $success;
 			}else{
-				echo "Errors Please";
+				echo $error;
 			}
 		}elseif($action=="update_article"){
-			$title=$input[1];
+			$title=$function->sanitize($input[1]);
 			$description=$function->sanitize($input[2]);
 			$category=$function->sanitize($input[3]);
-			$body=$input[4];
+			$body=htmlspecialchars($input[4]);
 			$article_id=(int)$function->sanitize($input[6]);
 			$status=$article->check_article_id($article_id);
 			if($status){
-				
+				//update article now
+				$update_status=$article->update_article($article_id,$title,$description,$body);
+				// echo $update_status;
+				// die();
+				if($update_status){
+					echo $success;
+				}else{
+					echo $error;
+				}
 			}else{
 				echo $error;
 			}
@@ -81,6 +90,34 @@ if(isset($_POST['input'])){
 			$article_status='SUBMITTED';
 			$status=$article->change_article_status($article_id,$article_status);
 			if($status){
+				echo $success;
+			}else{
+				echo $error;
+			}
+		}elseif($action=="trash_article"){
+			//grab inputs
+			$article_id=$function->sanitize($input[1]);
+			$article_status='TRASHED';
+			$status=$article->change_article_status($article_id,$article_status);
+			if($status){
+				echo $success;
+			}else{
+				echo $error;
+			}
+		}elseif($action=="change_article_status"){
+			//grab inputs
+			$article_id=$function->sanitize($input[1]);
+			$article_status=$function->sanitize($input[2]);
+			$status=$article->change_article_status($article_id,$article_status);
+			if($status){
+				echo $success;
+			}else{
+				echo $error;
+			}
+		}elseif($action=="delete_document"){
+			$document_id=$function->sanitize($input[1]);
+			$remove_status=$article->remove_document($document_id);
+			if($remove_status){
 				echo $success;
 			}else{
 				echo $error;

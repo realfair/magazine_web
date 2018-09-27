@@ -19,7 +19,9 @@ class Tables {
 	public function articles_posters(){
 		return 'articles_posters';
 	}
-
+	public function attachments(){
+		return 'articles_attachments';
+	}
 	public function publish_status(){
 		return 'PUBLISHED';
 	}
