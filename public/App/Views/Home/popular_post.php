@@ -1,21 +1,8 @@
 <?php 
-$Posts=$article->get_featured_posts();
-foreach ($Posts as $key => $post) {
-	//get article poster
+$popular_post=$article->get_popula_post();
+foreach ($popular_post as $key => $post) {
 	$Posters=$article->get_article_poster($post['article_id']);
 	$article_category=$article->get_article_category($post['category_id']);
-	$category_color="";
-	if($article_category=="IBYEGERANYO"){
-		$category_color="world";
-	}elseif($article_category=="IMIKINO"){
-		$category_color="sport";
-	}elseif($article_category=="IKORANABUHANGA"){
-		$category_color="technology";
-	}elseif($article_category=="IMYIDAGADURO"){
-		$category_color="entertainment";
-	}else{
-		$category_color="politics";
-	}
 	?>
 	<div class="post feature-post">
 		<div class="entry-header">
@@ -28,19 +15,24 @@ foreach ($Posts as $key => $post) {
 				}
 				?>
 			</div>
-			<div class="catagory <?php echo $category_color; ?>">
+			<div class="catagory health">
+				<span>
 				<a href="#">
 					<?php echo $article_category; ?>
 				</a>
+				</span>
 			</div>
 		</div>
 		<div class="post-content">								
 			<div class="entry-meta">
 				<ul class="list-inline">
-					<li class="publish-date"><i class="fa fa-clock-o"></i><a href="#"> Nov 1, 2015 </a></li>
+					<li class="publish-date"><i class="fa fa-clock-o"></i>
+						<a href="#">
+						<?php echo $post['validate_date']; ?> 
+						</a>
+					</li>
 					<li class="views"><i class="fa fa-eye"></i><a href="#">15k</a></li>
 					<li class="loves"><i class="fa fa-heart-o"></i><a href="#">278</a></li>
-					<li class="comments"><i class="fa fa-comment-o"></i><a href="#">189</a></li>
 				</ul>
 			</div>
 			<h2 class="entry-title">
@@ -49,7 +41,8 @@ foreach ($Posts as $key => $post) {
 				</a>
 			</h2>
 		</div>
-	</div><!--/post--> 
+	</div>
+	<!--/post--> 
 	<?php
 }
 ?>

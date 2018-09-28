@@ -128,9 +128,34 @@ class Article extends Execute{
 	############################# PUBLIC WEBSITE SECTION ####################################
 	public function get_featured_posts(){
 		$credentials=array("status"=>Tables::publish_status());
-		return $this->select_order_limit(Tables::articles(),$credentials,'article_id',9,false);
+		return $this->select_order_limit(Tables::articles(),$credentials,'article_id',6,false);
 	}
 	
+	public function get_popula_post(){
+		$credentials=array("status"=>Tables::publish_status());
+		return $this->select_order_limit(Tables::articles(),$credentials,'article_id',2,false);
+	}
+	public function get_article_category($category_id){
+		$credentials=array("category_id"=>$category_id,"status"=>'ACTIVE');
+		$category=$this->select_multi_clause(Tables::articles_categories(),$credentials);
+		$article_category="";
+		foreach ($category as $key => $value) {
+			$article_category=$value['name'];
+		}
+		return $article_category;
+	}
+	public function second_row(){
+		$rows=$this->table_rows(Tables::articles());
+		$diff=$rows-4;
+		$credentials=array("article_id"=>$diff);
+		$compare=array("status"=>Tables::publish_status());
+		$less=array("article_id"=>$rows);
+		return $this->select_greater_less_than(Tables::articles(),$credentials,$compare,$less);
+	}
+	public function single_row_content(){
+		$credentials=array("category_id"=>6,"status"=>Tables::publish_status());
+		return $this->select_clause_order_by(Tables::articles(),$credentials,'article_id',false);
+	}
 	############################ END OF PUBLIC WEBSITE SECTION ##############################
 }
 $article=new Article();

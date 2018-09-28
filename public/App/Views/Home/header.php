@@ -2,14 +2,14 @@
 <div class="navbar" role="banner">
 	<div class="container">
 		<a class="secondary-logo" href="index">
-			<img class="img-responsive" src="images/presets/preset1/logo.png" alt="logo">
+			<img class="img-responsive" src="images/logo/logo.png" alt="logo" style="width: 100px;">
 		</a>
 	</div>
 	<div class="topbar">
 		<div class="container">
 			<div id="topbar" class="navbar-header">							
 				<a class="navbar-brand" href="index.html">
-					<img class="main-logo img-responsive" src="images/presets/preset1/logo.png" alt="logo">
+					<img class="img-responsive" src="images/logo/logo.png" alt="logo" style="width: 100px;">
 				</a>
 				<div id="topbar-right">
 					<div class="dropdown language-dropdown">						

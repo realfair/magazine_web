@@ -26,95 +26,15 @@ require $root_url;
 								</div>
 							</div>
 							<div class="col-sm-4">
-								<div class="post feature-post">
-									<div class="entry-header">
-										<div class="entry-thumbnail">
-											<img class="img-responsive" src="images/post/slider/2.jpg" alt="" />
-										</div>
-										<div class="catagory health"><span><a href="#">Health</a></span></div>
-									</div>
-									<div class="post-content">								
-										<div class="entry-meta">
-											<ul class="list-inline">
-												<li class="publish-date"><i class="fa fa-clock-o"></i><a href="#"> Nov 7, 2015 </a></li>
-												<li class="views"><i class="fa fa-eye"></i><a href="#">15k</a></li>
-												<li class="loves"><i class="fa fa-heart-o"></i><a href="#">278</a></li>
-											</ul>
-										</div>
-										<h2 class="entry-title">
-											<a href="news-details.html">Manhunt intensifies for fugitive in Kentucky, Tennessee</a>
-										</h2>
-									</div>
-								</div><!--/post--> 
+								<?php 
+								include 'App/Views/Home/popular_post.php';
+								?>
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-sm-4">
-								<div class="post feature-post">
-									<div class="entry-header">
-										<div class="entry-thumbnail">
-											<img class="img-responsive" src="images/post/slider/3.jpg" alt="" />
-										</div>
-										<div class="catagory technology"><span><a href="#">Technology</a></span></div>
-									</div>
-									<div class="post-content">								
-										<div class="entry-meta">
-											<ul class="list-inline">
-												<li class="publish-date"><i class="fa fa-clock-o"></i><a href="#"> Nov 2, 2015 </a></li>
-												<li class="views"><i class="fa fa-eye"></i><a href="#">15k</a></li>
-												<li class="loves"><i class="fa fa-heart-o"></i><a href="#">278</a></li>
-											</ul>
-										</div>
-										<h2 class="entry-title">
-											<a href="news-details.html">Japan in four gorgeous Pokémon-themed colors</a>
-										</h2>
-									</div>
-								</div><!--/post--> 	
-							</div>
-							<div class="col-sm-4">
-								<div class="post feature-post">
-									<div class="entry-header">
-										<div class="entry-thumbnail">
-											<img class="img-responsive" src="images/post/slider/5.jpg" alt="" />
-										</div>
-										<div class="catagory entertainment"><a href="#">Entertainment</a></div>
-									</div>
-									<div class="post-content">								
-										<div class="entry-meta">
-											<ul class="list-inline">
-												<li class="publish-date"><i class="fa fa-clock-o"></i><a href="#"> Nov 3, 2015 </a></li>
-												<li class="views"><i class="fa fa-eye"></i><a href="#">15k</a></li>
-												<li class="loves"><i class="fa fa-heart-o"></i><a href="#">278</a></li>
-											</ul>
-										</div>
-										<h2 class="entry-title">
-											<a href="news-details.html">We finally found out how BB-8 really works</a>
-										</h2>
-									</div>
-								</div><!--/post--> 
-							</div>
-							<div class="col-sm-4">
-								<div class="post feature-post">
-									<div class="entry-header">
-										<div class="entry-thumbnail">
-											<img class="img-responsive" src="images/post/slider/6.jpg" alt="" />
-										</div>
-										<div class="catagory politics"><span><a href="#">Politics</a></span></div>
-									</div>
-									<div class="post-content">								
-										<div class="entry-meta">
-											<ul class="list-inline">
-												<li class="publish-date"><i class="fa fa-clock-o"></i><a href="#"> Nov 5, 2015 </a></li>
-												<li class="views"><i class="fa fa-eye"></i><a href="#">15k</a></li>
-												<li class="loves"><i class="fa fa-heart-o"></i><a href="#">278</a></li>
-											</ul>
-										</div>
-										<h2 class="entry-title">
-											<a href="news-details.html">And the most streamed Beatles song on Spotify is..</a>
-										</h2>
-									</div>
-								</div><!--/post--> 
-							</div>
+							<?php 
+							include 'App/Views/Home/second_row.php';
+							?>
 						</div>
 					</div><!--/#content--> 
 					
@@ -132,193 +52,11 @@ require $root_url;
 			
 			<div class="section">				
 				<div class="latest-news-wrapper">
-					<h1 class="section-title">Latest News</h1>	
+					<h1 class="section-title">Ibyegeranyo.</h1>	
 					<div id="latest-news">
-						<div class="post medium-post">
-							<div class="entry-header">
-								<div class="entry-thumbnail">
-									<img class="img-responsive" src="images/post/1.jpg" alt="" />
-								</div>
-								<div class="catagory politics"><span><a href="#">Politics</a></span></div>
-							</div>
-							<div class="post-content">								
-								<div class="entry-meta">
-									<ul class="list-inline">
-										<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 5, 2015 </a></li>
-										<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-										<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-									</ul>
-								</div>
-								<h2 class="entry-title">
-									<a href="news-details.html">Our closest relatives aren't fans of daylight saving time</a>
-								</h2>
-							</div>
-						</div><!--/post--> 
-						<div class="post medium-post">
-							<div class="entry-header">
-								<div class="entry-thumbnail">
-									<img class="img-responsive" src="images/post/2.jpg" alt="" />
-								</div>
-								<div class="catagory world"><a href="#">World</a></div>
-							</div>
-							<div class="post-content">								
-								<div class="entry-meta">
-									<ul class="list-inline">
-										<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 5, 2015 </a></li>
-										<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-										<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-									</ul>
-								</div>
-								<h2 class="entry-title">
-									<a href="news-details.html">44 books on 44 presidents: Welcome, folks, to the Adams</a>
-								</h2>
-							</div>
-						</div><!--/post--> 
-						<div class="post medium-post">
-							<div class="entry-header">
-								<div class="entry-thumbnail">
-									<img class="img-responsive" src="images/post/4.jpg" alt="" />
-								</div>
-								<div class="catagory health"><span><a href="#">Health</a></span></div>
-							</div>
-							<div class="post-content">								
-								<div class="entry-meta">
-									<ul class="list-inline">
-										<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 5, 2015 </a></li>
-										<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-										<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-									</ul>
-								</div>
-								<h2 class="entry-title">
-									<a href="news-details.html">And the most streamed Beatles song on Spotify is...</a>
-								</h2>
-							</div>
-						</div><!--/post--> 
-
-						<div class="post medium-post">
-							<div class="entry-header">
-								<div class="entry-thumbnail">
-									<img class="img-responsive" src="images/post/3.jpg" alt="" />
-								</div>
-								<div class="catagory sports"><span><a href="#">Sports</a></span></div>
-							</div>
-							<div class="post-content">								
-								<div class="entry-meta">
-									<ul class="list-inline">
-										<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 5, 2015 </a></li>
-										<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-										<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-									</ul>
-								</div>
-								<h2 class="entry-title">
-									<a href="news-details.html">NBA suspends Matt Barnes for attack on Derek Fisher</a>
-								</h2>
-							</div>
-						</div><!--/post--> 
-						
-						<div class="post medium-post">
-							<div class="entry-header">
-								<div class="entry-thumbnail">
-									<img class="img-responsive" src="images/post/5.jpg" alt="" />
-								</div>
-								<div class="catagory politics"><span><a href="#">Politics</a></span></div>
-							</div>
-							<div class="post-content">								
-								<div class="entry-meta">
-									<ul class="list-inline">
-										<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 5, 2015 </a></li>
-										<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-										<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-									</ul>
-								</div>
-								<h2 class="entry-title">
-									<a href="news-details.html">At Facebook who suggests tags for all of your photos</a>
-								</h2>
-							</div>
-						</div><!--/post--> 
-
-						<div class="post medium-post">
-							<div class="entry-header">
-								<div class="entry-thumbnail">
-									<img class="img-responsive" src="images/post/6.jpg" alt="" />
-								</div>
-								<div class="catagory entertainment"><span><a href="#">Entertainment</a></span></div>
-							</div>
-							<div class="post-content">								
-								<div class="entry-meta">
-									<ul class="list-inline">
-										<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 5, 2015 </a></li>
-										<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-										<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-									</ul>
-								</div>
-								<h2 class="entry-title">
-									<a href="news-details.html">Suspicion of plotting New Year's Eve attacks in Belgium</a>
-								</h2>
-							</div>
-						</div><!--/post--> 
-						<div class="post medium-post">
-							<div class="entry-header">
-								<div class="entry-thumbnail">
-									<img class="img-responsive" src="images/post/9.jpg" alt="" />
-								</div>
-								<div class="catagory sports"><span><a href="#">Sports</a></span></div>
-							</div>
-							<div class="post-content">								
-								<div class="entry-meta">
-									<ul class="list-inline">
-										<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 5, 2015 </a></li>
-										<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-										<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-									</ul>
-								</div>
-								<h2 class="entry-title">
-									<a href="news-details.html">Someone has calculated the total cost of saving Matt</a>
-								</h2>
-							</div>
-						</div><!--/post--> 
-						
-						<div class="post medium-post">
-							<div class="entry-header">
-								<div class="entry-thumbnail">
-									<img class="img-responsive" src="images/post/8.jpg" alt="" />
-								</div>
-								<div class="catagory politics"><span><a href="#">Politics</a></span></div>
-							</div>
-							<div class="post-content">								
-								<div class="entry-meta">
-									<ul class="list-inline">
-										<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 5, 2015 </a></li>
-										<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-										<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-									</ul>
-								</div>
-								<h2 class="entry-title">
-									<a href="news-details.html">Homemade lightsaber made with laser can cut wires</a>
-								</h2>
-							</div>
-						</div><!--/post--> 
-
-						<div class="post medium-post">
-							<div class="entry-header">
-								<div class="entry-thumbnail">
-									<img class="img-responsive" src="images/post/10.jpg" alt="" />
-								</div>
-								<div class="catagory entertainment"><span><a href="#">Entertainment</a></span></div>
-							</div>
-							<div class="post-content">								
-								<div class="entry-meta">
-									<ul class="list-inline">
-										<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 5, 2015 </a></li>
-										<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-										<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-									</ul>
-								</div>
-								<h2 class="entry-title">
-									<a href="news-details.html">Our closest relatives aren't fans of daylight saving time</a>
-								</h2>
-							</div>
-						</div><!--/post--> 
+						<?php 
+						include 'App/Views/Home/single_row_content.php';
+						?>
 					</div>
 				</div><!--/.latest-news-wrapper-->
 			</div><!--/.section-->
@@ -1567,20 +1305,9 @@ require $root_url;
 			</ul>
 		</div>
     </div>
-	<!--/End:Preset Style Chooser-->
-		
-	<!--/#scripts--> 
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
-	<script type="text/javascript" src="js/owl.carousel.min.js"></script> 
-	<script type="text/javascript" src="js/moment.min.js"></script> 
-	<script type="text/javascript" src="js/jquery.simpleWeather.min.js"></script> 
-	<script type="text/javascript" src="js/jquery.sticky-kit.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easy-ticker.min.js"></script> 
-	<script type="text/javascript" src="js/jquery.subscribe-better.min.js"></script> 
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/switcher.js"></script>
+    <?php 
+    include 'App/Views/Home/script.php';
+    ?>
 
 </body>
 </html>

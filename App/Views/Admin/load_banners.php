@@ -1,5 +1,5 @@
 <?php 
-require_once $_SERVER['DOCUMENT_ROOT'].'/e/classes_loader.php';
+// require_once $_SERVER['DOCUMENT_ROOT'].'/e/classes_loader.php';
 if(isset($_GET['ads']) && $_GET['ads']!=""){
     $ads=$function->sanitize($_GET['ads']);
     //get ads name
