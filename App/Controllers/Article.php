@@ -130,7 +130,16 @@ class Article extends Execute{
 		$credentials=array("status"=>Tables::publish_status());
 		return $this->select_order_limit(Tables::articles(),$credentials,'article_id',6,false);
 	}
-	
+	//get article author
+	public function get_article_author($author_id){
+		$credentials=array("user_id"=>$author_id,"status"=>'ACTIVE');
+		$author=$this->select_multi_clause(Tables::users(),$credentials);
+		$author_name="";
+		foreach ($author as $key => $value) {
+			$author_name=$value['names'];
+		}
+		return $author_name;
+	}
 	public function get_popula_post(){
 		$credentials=array("status"=>Tables::publish_status());
 		return $this->select_order_limit(Tables::articles(),$credentials,'article_id',2,false);

@@ -1,4 +1,5 @@
 	<!--CSS-->
+	<!-- <base href="http://localhost/magazine_web/public" /> -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/magnific-popup.css" rel="stylesheet">

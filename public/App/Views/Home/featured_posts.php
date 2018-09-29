@@ -37,14 +37,19 @@ foreach ($Posts as $key => $post) {
 		<div class="post-content">								
 			<div class="entry-meta">
 				<ul class="list-inline">
-					<li class="publish-date"><i class="fa fa-clock-o"></i><a href="#"> Nov 1, 2015 </a></li>
+					<li class="publish-date">
+						<i class="fa fa-clock-o"></i>
+						<a href="#">
+							<?php echo $function->string_date_format($post['validate_date']); ?>
+						</a>
+					</li>
 					<li class="views"><i class="fa fa-eye"></i><a href="#">15k</a></li>
 					<li class="loves"><i class="fa fa-heart-o"></i><a href="#">278</a></li>
 					<li class="comments"><i class="fa fa-comment-o"></i><a href="#">189</a></li>
 				</ul>
 			</div>
 			<h2 class="entry-title">
-				<a href="news-details.html">
+				<a href="article?id=<?php echo $post['article_id']; ?>&title=<?php echo $post['title']; ?>">
 					<?php echo $post['title']; ?>
 				</a>
 			</h2>

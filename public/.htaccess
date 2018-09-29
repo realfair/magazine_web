@@ -1,6 +1,7 @@
 ErrorDocument 404 http://localhost:8081/magazine_web/public/404.html
 # Turn Rewrite Engine On
 RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
 # Rewrite for index.php script
 RewriteRule ^index$ public_web.php [NC,L]
 RewriteRule ^article$ article_details.php [NC,L]

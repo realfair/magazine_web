@@ -1,13 +1,39 @@
 <?php 
 $root_url=$_SERVER['DOCUMENT_ROOT'].'/magazine_web/classes_loader.php';
 require $root_url;
+if(isset($_GET['id']) && isset($_GET['title'])){
+	//capture inputs
+	$article_id=(int)$function->sanitize($_GET['id']);
+	$title=$function->sanitize($_GET['title']);
+	//check if article_id is valid
+	$check_status=$article->check_article_id($article_id);
+	if(!$check_status){
+		backHome();
+	}else{
+		//get article information
+		$article_info=$article->get_article($article_id);
+		$article_category="";
+		$author_name="";
+		foreach ($article_info as $key => $post) {
+			$article_category=$article->get_article_category($post['category_id']);
+			$author_name=$article->get_article_author($post['author_id']);
+		}
+	}
+}else{
+	backHome();
+}
+
+function backHome(){
+	header("Location:index");
+	exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<?php include 'App/Views/Home/meta.php'; ?>	
 	<!--title-->
-    <title>News Press | News RedBlue Jd</title>
+    <title><?php echo $title; ?> | News RedBlue Jd</title>
 	<?php include 'App/Views/Home/stylesheet.php'; ?>	
 </head><!--/head-->
 <body>
@@ -18,7 +44,9 @@ require $root_url;
 	
 		<div class="container">
 			<div class="page-breadcrumbs">
-				<h1 class="section-title">Worlds</h1>	
+				<h1 class="section-title">
+					<?php echo $article_category; ?>
+				</h1>	
 				<div class="world-nav cat-menu">         
 					<ul class="list-inline">                       
 						<li class="active"><a href="#">Us</a></li>
@@ -40,26 +68,57 @@ require $root_url;
 											<div class="post">
 												<div class="entry-header">
 													<div class="entry-thumbnail">
-														<img class="img-responsive" src="images/post/w1.jpg" alt="" />
+														<?php 
+														foreach ($article_info as $key => $value) {
+															$Posters=$article->get_article_poster($value['article_id']);
+														}
+														?>
+														<?php 
+														foreach ($Posters as $key => $poster) {
+															?>
+														<img class="img-responsive" src="../assets/IMG/<?php echo $poster['filename']; ?>" alt="" />
+															<?php
+														}
+														?>
 													</div>
 												</div>
 												<div class="post-content">								
 													<div class="entry-meta">
 														<ul class="list-inline">
-															<li class="posted-by"><i class="fa fa-user"></i> by <a href="#">Owen Williams</a></li>
-															<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 15, 2015 </a></li>
+															<li class="posted-by">
+																<i class="fa fa-user"></i> by
+																<a href="#">
+																	<?php echo $author_name; ?>
+																</a>
+															</li>
+															<li class="publish-date">
+																<a href="#">
+																	<i class="fa fa-clock-o"></i>
+																	<?php 
+																	foreach ($article_info as $key => $value) {
+																		echo $function->string_date_format($value['validate_date']);
+																	}
+																	?>
+																</a>
+																</li>
 															<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
 															<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
 															<li class="comments"><i class="fa fa-comment-o"></i><a href="#">189</a></li>
 														</ul>
 													</div>
 													<h2 class="entry-title">
-														We Are Seeing The Effects Of The Minimum Wage Rise In San Francisco
+														<?php echo $title; ?>
 													</h2>
 													<div class="entry-content">
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-														<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p><br>
-														<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.</p>
+														<?php 
+														foreach ($article_info as $key => $value) {
+															if(strlen($value['text'])>1000){
+																echo "<p>".htmlspecialchars_decode(substr($value['text'], 0,500))." ....</p>";
+															}else{
+																echo "<p>".htmlspecialchars_decode(substr($value['text'], 0,500))."</p>";
+															}
+														}
+														?>
 														
 														<div class="row post-inner-image">
 															<div class="col-sm-4">
@@ -72,10 +131,13 @@ require $root_url;
 																<img class="img-responsive" src="images/post/inner3.jpg" alt="" />
 															</div>
 														</div><!-- post-inner-image -->
-														
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-														<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-														
+														<?php 
+														foreach ($article_info as $key => $value) {
+															if(strlen($value['text'])>1000){
+																echo "<p>".htmlspecialchars_decode(substr($value['text'], 501,strlen($value['text'])))."</p>";
+															}
+														}
+														?>
 														<ul class="list-inline share-link">
 															<li><a href="#"><img src="images/others/s1.png" alt="" /></a></li>
 															<li><a href="#"><img src="images/others/s2.png" alt="" /></a></li>
