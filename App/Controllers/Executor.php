@@ -159,6 +159,41 @@ class Execute extends Query{
 			return "INVALID INPUTS";
 		}
 	}
+	public function select_all_not_order_by($table,$credentials,$not,$order_by,$status){
+		$output=array();
+		if(is_array($credentials)){
+			$query="SELECT *";
+			$query.=" FROM ".$table." WHERE ";
+			$j=0;
+			foreach ($credentials as $key => $value) {
+				$query.=$key.'='."\"".$value."\"";
+				if($j<(count($credentials)-1)){
+					$query.=" AND ";
+				}
+				$j++;
+			}
+			$query.=" AND ";
+			$k=0;
+			foreach ($not as $key1 => $no) {
+				$query.=$key1.'!='."\"".$no."\"";
+				if($k<(count($not)-1)){
+					$query.=" AND ";
+				}
+				$k++;
+			}
+			$query.=" ORDER BY ".$order_by;
+			if($status){
+				$query.=" ASC";
+			}else{
+				$query.=" DESC";
+			}
+			//$output=$query;
+			$output=$this->select($query);
+			return $output;
+		}else{
+			return "INVALID INPUTS";
+		}
+	}
 	public function multi_select($table,$credentials){
 		$output=array();
 		if(is_array($credentials)){

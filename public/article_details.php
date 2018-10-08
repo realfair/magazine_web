@@ -5,6 +5,7 @@ if(isset($_GET['id']) && isset($_GET['title'])){
 	//capture inputs
 	$article_id=(int)$function->sanitize($_GET['id']);
 	$title=$function->sanitize($_GET['title']);
+	$category_id=0;
 	//check if article_id is valid
 	$check_status=$article->check_article_id($article_id);
 	if(!$check_status){
@@ -17,6 +18,14 @@ if(isset($_GET['id']) && isset($_GET['title'])){
 		foreach ($article_info as $key => $post) {
 			$article_category=$article->get_article_category($post['category_id']);
 			$author_name=$article->get_article_author($post['author_id']);
+			$category_id=(int)$post['category_id'];
+		}
+		//update article views
+		$article_views=$article->get_article_views($article_id);
+		$article_views+=1;
+		$update_views=$article->update_article_views($article_id,$article_views);
+		if(!$update_views){
+			backHome();
 		}
 	}
 }else{
@@ -34,7 +43,8 @@ function backHome(){
 	<?php include 'App/Views/Home/meta.php'; ?>	
 	<!--title-->
     <title><?php echo $title; ?> | News RedBlue Jd</title>
-	<?php include 'App/Views/Home/stylesheet.php'; ?>	
+	<?php include 'App/Views/Home/stylesheet.php'; ?>
+	<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5bb482467283210011cb5ecc&product='inline-share-buttons' async='async'></script>	
 </head><!--/head-->
 <body>
 	<div id="main-wrapper" class="page">
@@ -101,14 +111,22 @@ function backHome(){
 																	?>
 																</a>
 																</li>
-															<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
+															<li class="views">
+																<a href="#">
+																	<i class="fa fa-eye"></i>Yasuwe inshuro:<?php echo $article_views; ?>
+																</a>
+															</li>
 															<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-															<li class="comments"><i class="fa fa-comment-o"></i><a href="#">189</a></li>
+															<li class="comments">
+																<i class="fa fa-comment-o"></i>
+																<a href="#">Yavuzweho:</a>
+															</li>
 														</ul>
 													</div>
 													<h2 class="entry-title">
 														<?php echo $title; ?>
 													</h2>
+
 													<div class="entry-content">
 														<?php 
 														foreach ($article_info as $key => $value) {
@@ -138,23 +156,19 @@ function backHome(){
 															}
 														}
 														?>
-														<ul class="list-inline share-link">
-															<li><a href="#"><img src="images/others/s1.png" alt="" /></a></li>
-															<li><a href="#"><img src="images/others/s2.png" alt="" /></a></li>
-															<li><a href="#"><img src="images/others/s3.png" alt="" /></a></li>
-															<li><a href="#"><img src="images/others/s4.png" alt="" /></a></li>
-														</ul>
-													</div>
+														<div>
+															dfd 
+														</div>
+													
 												</div>
 											</div><!--/post--> 
 										</div><!--/.section-->
 									</div><!--/.left-content-->
 								</div>
-								
-								
-							
 							</div>
-						</div><!--/#site-content-->
+						</div>
+					</div>
+						<!--/#site-content-->
 						<div class="row">
 							<div class="col-sm-12">								
 								<div class="post google-add">
@@ -163,11 +177,11 @@ function backHome(){
 									</div><!--/.section-->
 								</div><!--/.google-add-->
 								<?php 
-								include 'App/Views/Article/comments.php';
-								?>								
-								<?php 
 								include 'App/Views/Article/similar_articles.php';
 								?>
+								<?php 
+								include 'App/Views/Article/comments.php';
+								?>								
 								<!--/.section -->	
 							</div>
 						</div>

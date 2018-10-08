@@ -90,9 +90,8 @@ $user_type=(int)$_SESSION['user_type'];
                         case 'articles':
                             include 'App/Views/Chief/load_articles.php'; 
                             break;
-                        
-                        default:
-                            # code...
+                        case 'comments':
+                            include 'App/Views/Chief/articles_comments.php'; 
                             break;
                     }
                 }else{

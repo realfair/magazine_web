@@ -90,8 +90,8 @@ public function formatDate($datetime, $full = false) {
         'y' => 'year',
         'm' => 'month',
         'w' => 'week',
-        'd' => 'day',
-        'h' => 'hour',
+        'd' => 'days',
+        'h' => 'hours',
         'i' => 'minute',
         's' => 'second',
     );

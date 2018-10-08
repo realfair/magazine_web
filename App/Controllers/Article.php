@@ -41,6 +41,34 @@ class Article extends Execute{
 		$credentials=array("article_id"=>$article_id);
 		return $this->select_multi_clause(Tables::articles(),$credentials);
 	}
+	//get article views
+	public function get_article_views($article_id){
+		$credentials=array("article_id"=>$article_id);
+		$article_info=$this->select_multi_clause(Tables::articles(),$credentials);
+		$views=0;
+		foreach ($article_info as $key => $article) {
+			$views=(int)$article['views'];
+		}
+		return $views;
+	}
+	public function update_article_views($article_id,$views){
+		$where=array("article_id"=>$article_id);
+		$array=array("views"=>$views);
+		return $this->query_update(Tables::articles(),$where,$array);
+	}
+	//save article comment
+	public function save_article_comment($article_id,$name,$email,$comment){
+		$array=array("article_id"=>$article_id,"user_mail"=>$email,"user_names"=>$name,"comment"=>$comment,"status"=>"PENDING");
+		return $this->multi_insert(Tables::comments(),$array);
+	}
+	public function get_articles_comments(){
+		return $this->select_all_order_by(Tables::comments(),"comment_id",false);
+	}
+	public function change_comment_status($comment_id,$status){
+		$where=array("comment_id"=>$comment_id);
+		$array=array("status"=>$status);
+		return $this->query_update(Tables::comments(),$where,$array);
+	}
 	//get article status
 	public function get_article_status($article_id){
 		$credentials=array("article_id"=>$article_id);
@@ -164,6 +192,16 @@ class Article extends Execute{
 	public function single_row_content(){
 		$credentials=array("category_id"=>6,"status"=>Tables::publish_status());
 		return $this->select_clause_order_by(Tables::articles(),$credentials,'article_id',false);
+	}
+	public function get_article_comments($article_id){
+		$credentials=array("article_id"=>$article_id,"status"=>'ACTIVE');
+		return $this->select_clause_order_by(Tables::comments(),$credentials,'comment_id',false);
+	}
+	public function get_similar_articles($category_id,$current_article){
+		$credentials=array("category_id"=>$category_id,"status"=>Tables::publish_status());
+		$not=array("article_id"=>$current_article);
+		
+		return $this->select_all_not_order_by(Tables::articles(),$credentials,$not,"article_id",false);
 	}
 	############################ END OF PUBLIC WEBSITE SECTION ##############################
 }

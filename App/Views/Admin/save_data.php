@@ -104,7 +104,32 @@ if(isset($_POST['input'])){
 			}else{
 				echo $error;
 			}
-		}elseif($action=="change_article_status"){
+		}elseif($action=="publish_comment"){
+			$comment_id=$function->sanitize($input[1]);
+			$save_status=$article->change_comment_status($comment_id,"ACTIVE");
+			if($save_status){
+				echo $success;
+			}else{
+				echo $error;
+			}
+		}elseif($action=="unpublish_comment"){
+			$comment_id=$function->sanitize($input[1]);
+			$save_status=$article->change_comment_status($comment_id,"PENDING");
+			if($save_status){
+				echo $success;
+			}else{
+				echo $error;
+			}
+		}elseif($action=="trash_comment"){
+			$comment_id=$function->sanitize($input[1]);
+			$save_status=$article->change_comment_status($comment_id,"TRASHED");
+			if($save_status){
+				echo $success;
+			}else{
+				echo $error;
+			}
+		}
+		elseif($action=="change_article_status"){
 			//grab inputs
 			$article_id=$function->sanitize($input[1]);
 			$article_status=$function->sanitize($input[2]);

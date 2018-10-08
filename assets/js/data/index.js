@@ -103,6 +103,30 @@ $(document).ready(function(){
 			saveData(input,"dashboard");
 		}
 	});
+	$("a.cmnt_publish").click(function(){
+		var action=$(this).attr("action");
+		input[0]="publish_comment";
+		input[1]=action;
+		if(confirm("You Are about to Publish Comment.")){
+			saveData(input,"dashboard?action=comments");
+		}
+	});
+	$("a.cmnt_trash").click(function(){
+		var action=$(this).attr("action");
+		input[0]="trash_comment";
+		input[1]=action;
+		if(confirm("You Are about to Delete This Comment.")){
+			saveData(input,"dashboard?action=comments");
+		}
+	});
+	$("a.cmnt_unpublish").click(function(){
+		var action=$(this).attr("action");
+		input[0]="unpublish_comment";
+		input[1]=action;
+		if(confirm("You Are about to Unpublish This Comment.")){
+			saveData(input,"dashboard?action=comments");
+		}
+	});
 	//upload banner
 	$("#file").on("change",function(){
 		var file=document.getElementById("file").files[0];

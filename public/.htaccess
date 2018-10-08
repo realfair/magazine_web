@@ -5,3 +5,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 # Rewrite for index.php script
 RewriteRule ^index$ public_web.php [NC,L]
 RewriteRule ^article$ article_details.php [NC,L]
+RewriteRule ^save_comment$ App/Views/Article/save_comment.php [NC,L]

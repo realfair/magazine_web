@@ -1,4 +1,5 @@
 <?php 
 require "classes_loader.php";
-var_dump($article->single_row_content());
+$articles=$article->get_similar_articles("6","22");
+var_dump($articles[0]);
 ?>

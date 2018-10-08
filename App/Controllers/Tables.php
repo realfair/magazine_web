@@ -10,6 +10,9 @@ class Tables {
 	public function articles(){
 		return 'articles';
 	}
+	public function comments(){
+		return 'articles_comments';
+	}
 	public function advert_categories(){
 		return 'advert_categories';
 	}

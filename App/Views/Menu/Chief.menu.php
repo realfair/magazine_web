@@ -26,7 +26,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="?action=categories" class="waves-effect">
+                    <a href="?action=comments" class="waves-effect">
                         <i class="fa fa-comment "></i>
                         <span> Articles Comments </span></a>
                 </li>
