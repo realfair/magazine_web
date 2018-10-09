@@ -137,7 +137,7 @@
 							<div class="sub-catagory">
 								<h2 class="section-title">Ikoranabuhanga</h2>
 								<ul class="list-inline">
-									<li><a href="#">Mudasobwa</a></li>
+									<li><a href="listing?category=9">Mudasobwa</a></li>
 									<li><a href="#">Ibinyabiziga</a></li>
 									<li><a href="#">Telefoni</a></li>
 									<li><a href="#">Ibindi...</a></li>

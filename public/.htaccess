@@ -6,3 +6,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^index$ public_web.php [NC,L]
 RewriteRule ^article$ article_details.php [NC,L]
 RewriteRule ^save_comment$ App/Views/Article/save_comment.php [NC,L]
+RewriteRule ^listing$ articles_listing.php [NC,L]

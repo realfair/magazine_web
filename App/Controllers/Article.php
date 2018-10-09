@@ -36,6 +36,17 @@ class Article extends Execute{
 		}
 		return $status;
 	}
+	public function check_article_category($category_id){
+		$credentials=array("category_id"=>$category_id);
+		$number=$this->row_counter(Tables::articles_categories(),$credentials);
+		$status=false;
+		if($number>0){
+			$status=true;
+		}else{
+			$status=false;
+		}
+		return $status;
+	}
 	//get article info
 	public function get_article($article_id){
 		$credentials=array("article_id"=>$article_id);
@@ -202,6 +213,12 @@ class Article extends Execute{
 		$not=array("article_id"=>$current_article);
 		
 		return $this->select_all_not_order_by(Tables::articles(),$credentials,$not,"article_id",false);
+	}
+	//article listing +++++++++++++++
+	//function to get top
+	public function get_list_top_article($category_id){
+		$credentials=array("category_id"=>$category_id);
+		return $this->select_clause_order_by(Tables::articles(),$credentials,"article_id",false);
 	}
 	############################ END OF PUBLIC WEBSITE SECTION ##############################
 }

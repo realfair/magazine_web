@@ -3,7 +3,7 @@ $Posts=$article->get_featured_posts();
 
 ?>
 <div class="widget">
-	<h1 class="section-title title">This is Rising!</h1>
+	<h1 class="section-title title">Inkuru ziheruka!</h1>
 	<ul class="post-list">
 	<?php 
 	foreach ($Posts as $key => $post) {
