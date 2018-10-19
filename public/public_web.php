@@ -7,7 +7,7 @@ require $root_url;
 <head>
 	<?php include 'App/Views/Home/meta.php'; ?>	
 	<!--title-->
-    <title>News Press | News RedBlue Jd</title>
+    <title>News RedBlue Jd</title>
 	<?php include 'App/Views/Home/stylesheet.php'; ?>	
 </head><!--/head-->
 <body>
