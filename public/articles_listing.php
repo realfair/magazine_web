@@ -22,7 +22,7 @@ function backHome(){
 <head>
 	<?php include 'App/Views/Home/meta.php'; ?>	
 	<!--title-->
-    <title><?php echo $title; ?> | News RedBlue Jd</title>
+    <title><?php echo $category_name; ?> | News RedBlue Jd</title>
 	<?php include 'App/Views/Home/stylesheet.php'; ?>
 	<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5bb482467283210011cb5ecc&product='inline-share-buttons' async='async'></script>	
 </head><!--/head-->
@@ -112,102 +112,9 @@ function backHome(){
 			</div><!--/.section-->
 		</div><!--/.container-->
 	</div><!--/#main-wrapper--> 
-	
-	<footer id="footer">
-		<div class="footer-top">
-			<div class="container text-center">
-				<div class="logo-icon"><img class="img-responsive" src="images/presets/preset1/logo-icon.png" alt="" /></div>
-			</div>
-		</div>
-		<div class="footer-menu">
-			<div class="container">
-				<ul class="nav navbar-nav">                       
-					<li><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Products</a></li>
-					<li><a href="#">Career</a></li>
-					<li><a href="#">Advertisement</a></li>
-					<li><a href="#">Team</a></li>
-					<li><a href="#">Contact Us</a></li>
-				</ul> 
-			</div>
-		</div>
-		<div class="bottom-widgets">
-			<div class="container">
-				<div class="col-sm-4">
-					<div class="widget">
-						<h2>Category</h2> 
-						<ul>
-							<li><a href="#">Business</a></li>
-							<li><a href="#">Politics</a></li>
-							<li><a href="#">Sports</a></li>
-							<li><a href="#">World</a></li>
-							<li><a href="#">Technology</a></li>
-						</ul>
-						<ul>
-							<li><a href="#">Environment</a></li>
-							<li><a href="#">Health</a></li>
-							<li><a href="#">Entertainment</a></li>
-							<li><a href="#">Lifestyle</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-sm-2">
-					<div class="widget">
-						<h2>Editions</h2> 
-						<ul>
-							<li><a href="#">United States</a></li>
-							<li><a href="#">China</a></li>
-							<li><a href="#">India</a></li>
-							<li><a href="#">Maxico</a></li>
-							<li><a href="#">Middle East</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="widget">
-						<h2>Tag</h2> 
-						<ul>
-							<li><a href="#">Gallery</a></li>
-							<li><a href="#">Sports</a></li>
-							<li><a href="#">Featured</a></li>
-							<li><a href="#">World</a></li>
-							<li><a href="#">Fashion</a></li>
-						</ul>
-						<ul>
-							<li><a href="#">Environment</a></li>
-							<li><a href="#">Health</a></li>
-							<li><a href="#">Entertainment</a></li>
-							<li><a href="#">Lifestyle</a></li>
-							<li><a href="#">Business</a></li>
-						</ul>
-						<ul>
-							<li><a href="#">Tech</a></li>
-							<li><a href="#">Movie</a></li>
-							<li><a href="#">Music</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-sm-2">
-					<div class="widget">
-						<h2>Products</h2> 
-						<ul>
-							<li><a href="#">Ebook</a></li>
-							<li><a href="#">Baby Product</a></li>
-							<li><a href="#">Magazine</a></li>
-							<li><a href="#">Sports Elements</a></li>							
-							<li><a href="#">Technology</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer-bottom">
-			<div class="container text-center">
-				<p><a href="#">NewsPress </a>&copy; 2015 </p>
-			</div>
-		</div>		
-	</footer>
+	<?php 
+	include_once 'App/Views/Utils/web_footer.php';
+	?>
 		
 		<!--/Preset Style Chooser--> 
 	<div class="style-chooser">

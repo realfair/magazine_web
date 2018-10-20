@@ -93,6 +93,24 @@ class Execute extends Query{
 			return "INVALID INPUTS";
 		}
 	}
+	public function search_all($table,$query_search,$order_by,$status){
+		$query="SELECT * FROM ".$table." WHERE ";
+		$j=0;
+		foreach ($query_search as $key => $search) {
+			$query.=$key.' LIKE "%'.$search.'%"';
+			if($j<(count($query_search)-1)){
+				$query.=" OR ";
+			}
+			$j++;
+		}
+		$query.=" ORDER BY ".$order_by;
+		if($status){
+			$query.=" ASC";
+		}else{
+			$query.=" DESC";
+		}
+		return $this->select($query);
+	}
 	public function select_all_order_by($table,$order_by,$status){
 		$query="SELECT * FROM ".$table." ORDER BY ".$order_by;
 		if($status){

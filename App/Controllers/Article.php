@@ -72,6 +72,13 @@ class Article extends Execute{
 		$array=array("article_id"=>$article_id,"user_mail"=>$email,"user_names"=>$name,"comment"=>$comment,"status"=>"PENDING");
 		return $this->multi_insert(Tables::comments(),$array);
 	}
+	//search article
+	public function search_article($input){
+		$query_search=array("title"=>$input,"sub_title"=>$input,"text"=>$input,"description"=>$input);
+		$order_by="article_id";
+		$status=false;
+		return $this->search_all(Tables::articles(),$query_search,$order_by,$status);
+	}
 	public function get_articles_comments(){
 		return $this->select_all_order_by(Tables::comments(),"comment_id",false);
 	}

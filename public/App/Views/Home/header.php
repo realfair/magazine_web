@@ -38,9 +38,9 @@
 				</li>
 				<li class="business dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Architecture</a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Ubumenyi k'umyubakire</a></li>
-						<li><a href="#">Gukora imbata z'inzu</a></li>
-						<li><a href="#">Amazu yo kubamo</a></li>
+						<li><a href="listing?category=12">Ubumenyi k'umyubakire</a></li>
+						<li><a href="listing?category=13">Gukora imbata z'inzu</a></li>
+						<li><a href="listing?category=14">Amazu yo kubamo</a></li>
 						<li><a href="#">Ibindi..</a></li>
 					</ul>
 				</li>
@@ -51,11 +51,11 @@
 							<div class="sub-catagory">
 								<h2 class="section-title">Ibyegeranyo</h2>
 								<ul class="list-inline">
-									<li><a href="#">Ubumenyamuntu</a></li>
-									<li><a href="#">Ikoranabuhanga</a></li>
-									<li><a href="#">Politiki</a></li>
-									<li><a href="#">Ubukungu</a></li>
-									<li><a href="#">Amateka</a></li>
+									<li><a href="listing?category=15">Ubumenyamuntu</a></li>
+									<li><a href="listing?category=16">Ikoranabuhanga</a></li>
+									<li><a href="listing?category=17">Politiki</a></li>
+									<li><a href="listing?category=34">Ubukungu</a></li>
+									<li><a href="listing?category=18">Amateka</a></li>
 									<li><a href="#">Ibindi</a></li>
 								</ul>
 							</div>
@@ -74,21 +74,21 @@
 								<div class="col-sm-3">
 									<h2>Ubugeni</h2>
 									<ul>
-										<li><a href="#">Gushushanya</a></li>
-										<li><a href="#">Ububumbyi</a></li>
-										<li><a href="#">Ibihangano</a></li>
-										<li><a href="#">Umuziki</a></li>
+										<li><a href="listing?category=19">Gushushanya</a></li>
+										<li><a href="listing?category=20">Ububumbyi</a></li>
+										<li><a href="listing?category=21">Ibihangano</a></li>
+										<li><a href="listing?category=22">Umuziki</a></li>
 										<li><a href="#">Ibindi..</a></li>
 									</ul>
 								</div>
 								<div class="col-sm-3">
 									<h2>Inkuru</h2>
 									<ul>
-										<li><a href="#">Inkuru zirangira</a></li>
-										<li><a href="#">Inkuru z'uruhererekane</a></li>
-										<li><a href="#">Inkuru z'urukundo</a></li>
-										<li><a href="#">Inkuru z'igisha</a></li>
-										<li><a href="#">Ubuhamya</a></li>
+										<li><a href="listing?category=23">Inkuru zirangira</a></li>
+										<li><a href="listing?category=24">Inkuru z'uruhererekane</a></li>
+										<li><a href="listing?category=25">Inkuru z'urukundo</a></li>
+										<li><a href="listing?category=26">Inkuru z'igisha</a></li>
+										<li><a href="listing?category=27">Ubuhamya</a></li>
 									</ul>
 								</div>
 								<div class="col-sm-3">
@@ -282,54 +282,24 @@
 						</div>
 					</div>
 				</li>
-				<li class="more dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Pages +</a>
-					<ul class="dropdown-menu">
-						<li><a href="news-details.html">News Details</a></li>
-						<li><a href="listing.html">Category Listing</a></li>
-						<li><a href="listing-life-style.html">Category Lifestyle</a></li>
-						<li><a href="listing-sports.html">Category Sports</a></li>
-						<li><a href="404.html">404 Error</a></li>
-						<li><a href="author-listing.html">Author Listing <span class="badge">New</span></a></li>
-						<li><a href="author-details.html">Author Details <span class="badge">New</span></a></li>
-						<li><a href="about-us.html">About Us <span class="badge">New</span></a></li>
-						<li><a href="contact-us.html">Contact Us <span class="badge">New</span></a></li>
-						<li><a href="contact-us2.html">Contact Us Two <span class="badge">New</span></a></li>
-						<li><a href="signup.html">Sign Up Page<span class="badge">New</span></a></li>
-						<li><a href="signin.html">Sign In page<span class="badge">New</span></a></li>
-					</ul>
-				</li>
 			</ul> 					
 		</nav>
 		<div class="searchNlogin">
 			<ul>
 				<li class="search-icon"><i class="fa fa-search"></i></li>
-				<li class="dropdown user-panel"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
-					<div class="dropdown-menu top-user-section">
-						<div class="top-user-form">
-							<form id="top-login" role="form">
-								<div class="input-group" id="top-login-username">
-									<span class="input-group-addon"><img src="images/others/user-icon.png" alt="" /></span>
-									<input type="text" class="form-control" placeholder="Username" required="">
-								</div>
-								<div class="input-group" id="top-login-password">
-									<span class="input-group-addon"><img src="images/others/password-icon.png" alt="" /></span>
-									<input type="password" class="form-control" placeholder="Password" required="">
-								</div>
-								<div>
-									<p class="reset-user">Forgot <a href="#">Password/Username?</a></p>
-									<button class="btn btn-danger" type="submit">Login</button>
-								</div>
-							</form>
-						</div>
-						<div class="create-account">
-							<a href="#">Create a New Account</a>
-						</div>
-					</div>
+				<li class="dropdown user-panel">
+					<a href="javascript:void(0);"><i class="fa fa-user"></i></a>
 				</li>
 			</ul>
 			<div class="search">
 				<form role="form">
-					<input type="text" class="search-form" autocomplete="off" placeholder="Type & Press Enter">
+					<input id="txtSearch" type="text" class="search-form" autocomplete="off" placeholder="Type & Press Enter">
+					<div class="row" style="background: #fff;">
+						<center><img id="loader" src="images/others/loader.gif" style="width: 90px;"></center>
+						<div id="div_search" class="col-md-12" style="min-height: 300px;background: #fff;display: none;">
+							
+						</div>
+					</div>
 				</form>
 			</div> <!--/.search--> 
 		</div><!-- searchNlogin -->
