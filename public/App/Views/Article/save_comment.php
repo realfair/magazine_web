@@ -23,38 +23,40 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['comment'])){
 			<?php 
 				foreach ($search_result as $key => $post) {
 					$Posters=$article->get_article_poster($post['article_id']);
-					?>
-					<div class="col-sm-12 col-sm-6">
-						<div class="post small-post">
-							<div class="entry-header">
-								<div class="entry-thumbnail">
-								<?php 
-								foreach ($Posters as $key => $poster) {
-									?>
-								<img class="img-responsive" src="../assets/IMG/<?php echo $poster['filename']; ?>" alt="" />
-									<?php
-								}
-								?>
-								</div>
-							</div>
-							<div class="post-content">								
-								<div class="entry-meta">
-								</div>
-								<h2 class="entry-title">
-									<a href="article?id=<?php echo $post['article_id']; ?>&title=<?php echo $post['title']; ?>">
-										<?php
-										if(strlen($post['title'])>100){
-											echo substr($post['title'],0,100).'...SOMA BYOSE.....';
-										}else{
-											echo $post['title'];
-										}
+					if($post['status']=='PUBLISHED'){
+						?>
+						<div class="col-sm-12 col-sm-6">
+							<div class="post small-post">
+								<div class="entry-header">
+									<div class="entry-thumbnail">
+									<?php 
+									foreach ($Posters as $key => $poster) {
 										?>
-									</a>
-								</h2>
-							</div>
-						</div><!--/post--> 
-					</div>
-					<?php
+									<img class="img-responsive" src="../assets/IMG/<?php echo $poster['filename']; ?>" alt="" />
+										<?php
+									}
+									?>
+									</div>
+								</div>
+								<div class="post-content">								
+									<div class="entry-meta">
+									</div>
+									<h2 class="entry-title">
+										<a href="article?id=<?php echo $post['article_id']; ?>&title=<?php echo $post['title']; ?>">
+											<?php
+											if(strlen($post['title'])>100){
+												echo substr($post['title'],0,100).'...SOMA BYOSE.....';
+											}else{
+												echo $post['title'];
+											}
+											?>
+										</a>
+									</h2>
+								</div>
+							</div><!--/post--> 
+						</div>
+						<?php
+					}
 				}
 			?>
 		</div>

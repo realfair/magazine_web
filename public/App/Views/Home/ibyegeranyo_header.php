@@ -1,5 +1,5 @@
 <?php 
-$Posts=$article->single_row_content();
+$Posts=$article->single_row_content(6);
 $counter=0;
 foreach ($Posts as $key => $post) {
 	$Posters=$article->get_article_poster($post['article_id']);

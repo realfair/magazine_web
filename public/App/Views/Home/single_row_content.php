@@ -1,5 +1,5 @@
 <?php 
-$documentaries=$article->single_row_content();
+$documentaries=$article->single_row_content(6);
 foreach ($documentaries as $key => $post) {
 	$Posters=$article->get_article_poster($post['article_id']);
 	$article_category=$article->get_article_category($post['category_id']);

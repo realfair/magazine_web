@@ -234,13 +234,12 @@
 				</li>
 				<li class="politics dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Isoko</a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Amazu</a></li>
-						<li><a href="#">Ibibanza</a></li>
-						<li><a href="#">Ibinyabiziga</a></li>
-						<li><a href="#">Camera n'ibikoresho byazo</a></li>
-						<li><a href="#">Mudasobwa</a></li>
-						<li><a href="#">Ibikoresho byo mu rugo</a></li>
-						<li><a href="#">Ibindi</a></li>
+						<li><a href="listing?category=28">Amazu</a></li>
+						<li><a href="listing?category=29">Ibibanza</a></li>
+						<li><a href="listing?category=30">Ibinyabiziga</a></li>
+						<li><a href="listing?category=31">Camera n'ibikoresho byazo</a></li>
+						<li><a href="listing?category=41">Mudasobwa</a></li>
+						<li><a href="listing?category=32">Ibikoresho byo mu rugo</a></li>
 					</ul>
 				</li>
 				<li class="health dropdown mega-dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Amashusho</a>

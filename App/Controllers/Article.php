@@ -207,10 +207,11 @@ class Article extends Execute{
 		$less=array("article_id"=>$rows);
 		return $this->select_greater_less_than(Tables::articles(),$credentials,$compare,$less);
 	}
-	public function single_row_content(){
-		$credentials=array("category_id"=>6,"status"=>Tables::publish_status());
+	public function single_row_content($category_id){
+		$credentials=array("category_id"=>$category_id,"status"=>Tables::publish_status());
 		return $this->select_clause_order_by(Tables::articles(),$credentials,'article_id',false);
 	}
+
 	public function get_article_comments($article_id){
 		$credentials=array("article_id"=>$article_id,"status"=>'ACTIVE');
 		return $this->select_clause_order_by(Tables::comments(),$credentials,'comment_id',false);
@@ -227,6 +228,21 @@ class Article extends Execute{
 		$credentials=array("category_id"=>$category_id);
 		return $this->select_clause_order_by(Tables::articles(),$credentials,"article_id",false);
 	}
+	//+++++++++++++++++++++++++++++++++++++GET CATEGORIES++++++++++++++++++++++++++
+
+	public function ubucukumbuzi($limit){
+		$query="SELECT * FROM ".Tables::articles()." WHERE category_id=40 OR category_id=39 OR category_id=38 OR category_id=37 OR category_id=36 ORDER BY article_id DESC LIMIT ".$limit;
+		return $this->querying($query);
+	}
+	public function technology($limit){
+		$query="SELECT * FROM ".Tables::articles()." WHERE category_id=9 OR category_id=10 OR category_id=11 ORDER BY article_id DESC LIMIT ".$limit;
+		return $this->querying($query);
+	}
+	public function isoko($limit){
+		$query="SELECT * FROM ".Tables::articles()." WHERE category_id=28 OR category_id=29 OR category_id=30 OR category_id=31 OR category_id=41 AND status='PUBLISHED' ORDER BY article_id DESC LIMIT ".$limit;
+		return $this->querying($query);
+	}
+	
 	############################ END OF PUBLIC WEBSITE SECTION ##############################
 }
 $article=new Article();

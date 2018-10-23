@@ -93,8 +93,32 @@ class Execute extends Query{
 			return "INVALID INPUTS";
 		}
 	}
+	public function querying($query){
+		return $this->select($query);
+	}
+	public function select_or_clause($table,$credentials){
+		$output=array();
+		if(is_array($credentials)){
+			$query="SELECT *";
+			$query.=" FROM ".$table." WHERE ";
+			$j=0;
+			foreach ($credentials as $key => $value) {
+				$query.=$key.'='."\"".$value."\"";
+				if($j<(count($credentials)-1)){
+					$query.=" OR ";
+				}
+				$j++;
+			}
+			
+			$output=$query;
+			//$output=$this->select($query);
+			return $output;
+		}else{
+			return "INVALID INPUTS";
+		}
+	}
 	public function search_all($table,$query_search,$order_by,$status){
-		$query="SELECT * FROM ".$table." WHERE ";
+		$query="SELECT * FROM ".$table." WHERE status='PUBLISHED' AND ";
 		$j=0;
 		foreach ($query_search as $key => $search) {
 			$query.=$key.' LIKE "%'.$search.'%"';
@@ -103,6 +127,7 @@ class Execute extends Query{
 			}
 			$j++;
 		}
+		//$query.=" AND status='PUBLISHED'";
 		$query.=" ORDER BY ".$order_by;
 		if($status){
 			$query.=" ASC";
@@ -110,6 +135,7 @@ class Execute extends Query{
 			$query.=" DESC";
 		}
 		return $this->select($query);
+		//return $query;
 	}
 	public function select_all_order_by($table,$order_by,$status){
 		$query="SELECT * FROM ".$table." ORDER BY ".$order_by;
