@@ -1,5 +1,5 @@
 <?php 
-$documentaries=$article->single_row_content(6);
+$documentaries=$article->ibyegeranyo(6,false);
 foreach ($documentaries as $key => $post) {
 	$Posters=$article->get_article_poster($post['article_id']);
 	$article_category=$article->get_article_category($post['category_id']);
@@ -39,11 +39,10 @@ foreach ($documentaries as $key => $post) {
 					<li class="publish-date">
 						<a href="#"><i class="fa fa-clock-o"></i> <?php echo $post['validate_date']; ?></a></li>
 					<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-					<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
 				</ul>
 			</div>
 			<h2 class="entry-title">
-				<a href="news-details.html">
+				<a href="article?id=<?php echo $post['article_id']; ?>&title=<?php echo $post['title']; ?>">
 					<?php echo $post['title']; ?>
 				</a>
 			</h2>

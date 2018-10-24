@@ -57,15 +57,6 @@ function backHome(){
 				<h1 class="section-title">
 					<?php echo $article_category; ?>
 				</h1>	
-				<div class="world-nav cat-menu">         
-					<ul class="list-inline">                       
-						<li class="active"><a href="#">Us</a></li>
-						<li><a href="#">Crime</a></li>
-						<li><a href="#">Local</a></li>
-						<li><a href="#">Offbet</a></li>
-						<li><a href="#">Openion</a></li>
-					</ul> 					
-				</div>
 			</div>
 			<div class="section">
 				<div class="row">
@@ -131,35 +122,15 @@ function backHome(){
 														<?php 
 														foreach ($article_info as $key => $value) {
 															if(strlen($value['text'])>1000){
-																echo "<p>".htmlspecialchars_decode(substr($value['text'], 0,500))." ....</p>";
+																echo "<p>".htmlspecialchars_decode($value['text'])." ....</p>";
 															}else{
-																echo "<p>".htmlspecialchars_decode(substr($value['text'], 0,500))."</p>";
+																echo "<p>".htmlspecialchars_decode($value['text'])."</p>";
 															}
 														}
 														?>
-														
-														<div class="row post-inner-image">
-															<div class="col-sm-4">
-																<img class="img-responsive" src="images/post/inner1.jpg" alt="" />
-															</div>
-															<div class="col-sm-4">
-																<img class="img-responsive" src="images/post/inner2.jpg" alt="" />
-															</div>
-															<div class="col-sm-4">
-																<img class="img-responsive" src="images/post/inner3.jpg" alt="" />
-															</div>
-														</div><!-- post-inner-image -->
 														<?php 
-														foreach ($article_info as $key => $value) {
-															if(strlen($value['text'])>1000){
-																echo "<p>".htmlspecialchars_decode(substr($value['text'], 501,strlen($value['text'])))."</p>";
-															}
-														}
-														?>
-														<div>
-															dfd 
-														</div>
-													
+														//include 'App/Views/Article/gallery.php';
+														?>													
 												</div>
 											</div><!--/post--> 
 										</div><!--/.section-->
@@ -171,11 +142,7 @@ function backHome(){
 						<!--/#site-content-->
 						<div class="row">
 							<div class="col-sm-12">								
-								<div class="post google-add">
-									<div class="add inner-add text-center">
-										<a href="#"><img class="img-responsive" src="images/post/google-add.jpg" alt="" /></a>
-									</div><!--/.section-->
-								</div><!--/.google-add-->
+								<?php include 'App/Views/Banner/article_first_leaderboard.php'; ?>
 								<?php 
 								include 'App/Views/Article/similar_articles.php';
 								?>
@@ -189,11 +156,10 @@ function backHome(){
 					
 					<div class="col-sm-3">
 						<div id="sitebar">
-							<div class="widget">
-								<div class="add featured-add">
-									<a href="#"><img class="img-responsive" src="images/post/add/add1.jpg" alt="" /></a>
-								</div>
-							</div><!--/#widget-->
+							<?php 
+								include 'App/Views/Banner/article_first_cube.php';
+							?>
+							<!--/#widget-->
 							
 							<div class="widget follow-us">
 								<h1 class="section-title title">Follow Us</h1>
@@ -218,21 +184,6 @@ function backHome(){
 	<?php 
 	include_once 'App/Views/Utils/web_footer.php';
 	?>
-	<!--/Preset Style Chooser--> 
-	<div class="style-chooser">
-		<div class="style-chooser-inner">
-			<a href="#" class="toggler"><i class="fa fa-life-ring fa-spin"></i></a>
-			<h4>Presets Color</h4>
-			<ul class="preset-list clearfix">
-				<li class="preset1 active" data-preset="1"><a href="#" data-color="preset1"></a></li>
-				<li class="preset2" data-preset="2"><a href="#" data-color="preset2"></a></li>
-				<li class="preset3" data-preset="3"><a href="#" data-color="preset3"></a></li>        
-				<li class="preset4" data-preset="4"><a href="#" data-color="preset4"></a></li>
-				<li class="preset5" data-preset="5"><a href="#" data-color="preset5"></a></li>
-				<li class="preset6" data-preset="6"><a href="#" data-color="preset6"></a></li>
-			</ul>
-		</div>
-    </div>
     <?php 
     include 'App/Views/Home/script.php';
     ?>

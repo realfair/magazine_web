@@ -1,5 +1,6 @@
 <?php 
 $similar_articles=$article->get_similar_articles($category_id,$article_id);
+//var_dump($similar_articles);
 if(count($similar_articles)>0){
 ?>
 <div class="section">
@@ -40,7 +41,7 @@ if(count($similar_articles)>0){
 								<ul class="list-inline">
 									<li class="publish-date">
 										<a href="#"><i class="fa fa-clock-o"></i>
-											<?php echo $function->string_date_format($value['validate_date']); ?>
+											<?php echo $function->string_date_format($post['validate_date']); ?>
 										</a>
 									</li>
 									<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>

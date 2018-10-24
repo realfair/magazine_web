@@ -64,13 +64,7 @@ function backHome(){
 									include 'App/Views/Listing/first_section.php';
 									?>
 								</div><!--/.section -->	
-								
-								<div class="google-add">
-									<div class="add inner-add text-center">
-										<a href="#"><img class="img-responsive" src="images/post/google-add.jpg" alt="" /></a>
-									</div><!--/.section-->
-								</div><!--/.google-add-->
-								
+								<?php include 'App/Views/Banner/article_first_leaderboard.php'; ?>								
 								<div class="section">
 									<?php 
 									//include 'App/Views/Listing/second_section.php';
@@ -85,23 +79,8 @@ function backHome(){
 					
 					<div class="col-sm-3">
 						<div id="sitebar">
-							<div class="widget">
-								<div class="add featured-add">
-									<a href="#"><img class="img-responsive" src="images/post/add/add1.jpg" alt="" /></a>
-								</div>
-
-							</div><!--/#widget-->
-							
-							<div class="widget follow-us">
-								<h1 class="section-title title">Follow Us</h1>
-								<ul class="list-inline social-icons">
-									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-									<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-									<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-								</ul>
-							</div><!--/#widget-->
+							<?php include 'App/Views/Banner/article_first_cube.php'; ?>
+							<?php include 'App/Views/Utils/follow_us.php'; ?>
 							<?php 
 							include 'App/Views/Article/recent_articles.php';
 							?>
@@ -115,36 +94,10 @@ function backHome(){
 	<?php 
 	include_once 'App/Views/Utils/web_footer.php';
 	?>
-		
-		<!--/Preset Style Chooser--> 
-	<div class="style-chooser">
-		<div class="style-chooser-inner">
-			<a href="#" class="toggler"><i class="fa fa-life-ring fa-spin"></i></a>
-			<h4>Presets Color</h4>
-			<ul class="preset-list clearfix">
-				<li class="preset1 active" data-preset="1"><a href="#" data-color="preset1"></a></li>
-				<li class="preset2" data-preset="2"><a href="#" data-color="preset2"></a></li>
-				<li class="preset3" data-preset="3"><a href="#" data-color="preset3"></a></li>        
-				<li class="preset4" data-preset="4"><a href="#" data-color="preset4"></a></li>
-				<li class="preset5" data-preset="5"><a href="#" data-color="preset5"></a></li>
-				<li class="preset6" data-preset="6"><a href="#" data-color="preset6"></a></li>
-			</ul>
-		</div>
-    </div>
 	<!--/End:Preset Style Chooser-->
-		
-	<!--/#scripts--> 
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
-	<script type="text/javascript" src="js/owl.carousel.min.js"></script> 
-	<script type="text/javascript" src="js/moment.min.js"></script> 
-	<script type="text/javascript" src="js/jquery.simpleWeather.min.js"></script> 
-	<script type="text/javascript" src="js/jquery.sticky-kit.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easy-ticker.min.js"></script> 
-	<script type="text/javascript" src="js/jquery.subscribe-better.min.js"></script> 
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/switcher.js"></script>
+	<?php 
+		include 'App/Views/Utils/listing_script.php';
+	?>
 
 </body>
 </html>

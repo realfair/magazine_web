@@ -234,8 +234,19 @@ class Article extends Execute{
 		$query="SELECT * FROM ".Tables::articles()." WHERE category_id=40 OR category_id=39 OR category_id=38 OR category_id=37 OR category_id=36 ORDER BY article_id DESC LIMIT ".$limit;
 		return $this->querying($query);
 	}
+	public function architecture($limit){
+		$query="SELECT * FROM ".Tables::articles()." WHERE category_id=12 OR category_id=13 OR category_id=14 ORDER BY article_id DESC LIMIT ".$limit;
+		return $this->querying($query);
+	}
 	public function technology($limit){
 		$query="SELECT * FROM ".Tables::articles()." WHERE category_id=9 OR category_id=10 OR category_id=11 ORDER BY article_id DESC LIMIT ".$limit;
+		return $this->querying($query);
+	}
+	public function ibyegeranyo($limit,$status){
+		$query="SELECT * FROM ".Tables::articles()." WHERE category_id=15 OR category_id=16 OR category_id=17 OR category_id=34 or category_id=18 ORDER BY article_id DESC";
+		if($status){
+			$query.=" LIMIT ".$limit;
+		}
 		return $this->querying($query);
 	}
 	public function isoko($limit){

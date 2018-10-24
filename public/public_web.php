@@ -7,7 +7,7 @@ require $root_url;
 <head>
 	<?php include 'App/Views/Home/meta.php'; ?>	
 	<!--title-->
-    <title>News RedBlue Jd</title>
+    <title>Amakuru RedBlue Jd</title>
 	<?php include 'App/Views/Home/stylesheet.php'; ?>	
 </head><!--/head-->
 <body>
@@ -37,19 +37,11 @@ require $root_url;
 							?>
 						</div>
 					</div><!--/#content--> 
-					
-					<div class="col-md-3 visible-md visible-lg">
-						<div class="add featured-add">
-							<a href="#"><img class="img-responsive" src="images/post/add/add1.jpg" alt="" /></a>
-						</div>
-					</div><!--/#add--> 
+					<?php include 'App/Views/Banner/home_first_cube.php'; ?>
+					<!--/#add--> 
 				</div>
 			</div><!--/.section--> 
-			
-			<div class="section add inner-add">
-				<a href="#"><img class="img-responsive" src="images/post/add/add2.jpg" alt="" /></a>
-			</div><!--/.section-->
-			
+			<?php include 'App/Views/Banner/home_first_leaderboard.php'; ?>			
 			<div class="section">				
 				<div class="latest-news-wrapper">
 					<h1 class="section-title">Ibyegeranyo.</h1>	
@@ -72,10 +64,8 @@ require $root_url;
 										<!--/.Ubucukumbuzi-->
 										<?php include 'App/Views/Home/technology.php'; ?>
 										<!--/technology-news--> 
-										
-										<div class="section add inner-add">
-											<a href="#"><img class="img-responsive" src="images/post/add/add4.jpg" alt="" /></a>
-										</div><!--/.section add-->
+										<?php include'App/Views/Banner/home_second_leaderboard.php'; ?>
+										<!--/.section add-->
 										<!-- Sports -->
 										<?php include 'App/Views/Home/report.php'; ?>
 										<!--  -->
@@ -90,147 +80,9 @@ require $root_url;
 								</div>
 								<div class="col-md-4 col-sm-6">
 									<div class="middle-content">
-										<div class="section sports-section">
-											<h1 class="section-title title">Sports</h1>
-											<div class="cat-menu">         
-												<a href="listing-sports.html">See all</a>					
-											</div>										
-											<div class="football-result post">
-												<div class="featured-result">
-													<h2 class="league-name">Premier League</h2>
-													<div class="row">
-														<div class="col-xs-4">
-															<img class="img-responsive" src="images/gallery/league1.png" alt="" />
-															<span class="match-result">3</span>
-														</div>
-														<div class="col-xs-4">
-															<span class="verses">VS</span>
-															<span class="match-time">90:00</span>
-														</div>
-														<div class="col-xs-4">
-															<img class="img-responsive" src="images/gallery/league2.png" alt="" />
-															<span class="match-result">0</span>
-														</div>
-													</div>
-												</div>
-												<div class="league-result">
-													<ul>
-														<li>
-															<div class="row">
-																<div class="col-xs-4">
-																	<img class="img-responsive"  src="images/gallery/team1.png" alt="" />
-																	<span class="team-name">Bra</span>
-																</div>
-																<div class="col-xs-4">
-																	<span class="match-result">3-2</span>
-																</div>
-																<div class="col-xs-4">
-																	<span class="team-name">Arg</span>
-																	<img class="img-responsive" src="images/gallery/team2.png" alt="" />
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="row">
-																<div class="col-xs-4">
-																	<img class="img-responsive" src="images/gallery/team2.png" alt="" />
-																	<span class="team-name">Arg</span>
-																</div>
-																<div class="col-xs-4">
-																	<span class="match-result">5-4</span>
-																</div>
-																<div class="col-xs-4">
-																	<span class="team-name">Bra</span>
-																	<img class="img-responsive" src="images/gallery/team1.png" alt="" />
-																</div>
-															</div>
-														</li>
-														<li>
-															<div class="row">
-																<div class="col-xs-4">
-																	<img class="img-responsive" src="images/gallery/team1.png" alt="" />
-																	<span class="team-name">Bra</span>
-																</div>
-																<div class="col-xs-4">
-																	<span class="match-result">1-2</span>
-																</div>
-																<div class="col-xs-4">
-																	<span class="team-name">Arg</span>
-																	<img class="img-responsive" src="images/gallery/team2.png" alt="" />
-																</div>
-															</div>
-														</li>
-													</ul>
-												</div>
-											</div>
-											<div class="post medium-post">
-												<div class="entry-header">
-													<div class="entry-thumbnail">
-														<img class="img-responsive" src="images/others/sports1.jpg" alt="" />
-													</div>
-												</div>
-												<div class="post-content">								
-													<div class="entry-meta">
-														<ul class="list-inline">
-															<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 15, 2015 </a></li>
-															<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-															<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-														</ul>
-													</div>
-													<h2 class="entry-title">
-														<a href="news-details.html">Our closest relatives aren't fans of daylight saving time</a>
-													</h2>
-												</div>
-											</div><!--/post--> 
-											
-											<div class="post medium-post">
-												<div class="entry-header">
-													<div class="entry-thumbnail">
-														<img class="img-responsive" src="images/post/sports/2.jpg" alt="" />
-													</div>
-												</div>
-												<div class="post-content">								
-													<div class="entry-meta">
-														<ul class="list-inline">
-															<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 15, 2015 </a></li>
-															<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-															<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-														</ul>
-													</div>
-													<h2 class="entry-title">
-														<a href="news-details.html">Our closest relatives aren't fans of daylight saving time</a>
-													</h2>
-												</div>
-											</div><!--/post--> 
-											
-											<div class="post medium-post">
-												<div class="entry-header">
-													<div class="entry-thumbnail">
-														<img class="img-responsive" src="images/post/sports/1.jpg" alt="" />
-													</div>
-												</div>
-												<div class="post-content">								
-													<div class="entry-meta">
-														<ul class="list-inline">
-															<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 15, 2015 </a></li>
-															<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-															<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-														</ul>
-													</div>
-													<h2 class="entry-title">
-														<a href="news-details.html">Our closest relatives aren't fans of daylight saving time</a>
-													</h2>
-												</div>
-											</div><!--/post--> 
-											
-										</div><!--/.sports-section -->
-										
-										<div class="section">
-											<div class="add inner-add">
-												<a href="#"><img class="img-responsive" src="images/post/add/add5.jpg" alt="" /></a>
-											</div>
-										</div>
-										
+										<?php include 'App/Views/Home/architecture.php'; ?>
+										<!--/.sports-section -->
+										<?php include 'App/Views/Banner/home_third_sky.php'; ?>										
 										<div class="section video-section">
 											<h1 class="section-title title">Watch Video</h1>
 											<div class="cat-menu">         
@@ -300,68 +152,8 @@ require $root_url;
 												</ul>
 											</div>											
 										</div> <!-- /.video-section -->
-										
-										<div class="section business-section">
-											<h1 class="section-title">Business</h1>
-											<div class="cat-menu">         
-												<a href="listing.html">See all</a>					
-											</div>
-											<div class="post medium-post">
-												<div class="entry-header">
-													<div class="entry-thumbnail">
-														<img class="img-responsive" src="images/post/business/4.jpg" alt="" />
-													</div>
-												</div>
-												<div class="post-content">								
-													<div class="entry-meta">
-														<ul class="list-inline">
-															<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 15, 2015 </a></li>
-															<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-															<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-														</ul>
-													</div>
-													<h2 class="entry-title">
-														<a href="news-details.html">We are seeing the effects of the minimum wage san francisco</a>
-													</h2>
-												</div>
-											</div><!--/post--> 
-											
-											<div class="stock-exchange text-center">
-												<div class="stock-exchange-zone">
-													<a href="#"><img class="img-responsive" src="images/gallery/stock.png" alt="" /></a>
-												</div>
-												<div class="stock-header">
-													<div class="row">
-														<div class="col-xs-4">Name</div>
-														<div class="col-xs-4">Price</div>
-														<div class="col-xs-4">%+/-</div>
-													</div>
-												</div>
-												<div class="stock-reports">
-													<div class="com-details">
-														<div class="row">
-															<div class="col-xs-4 com-name">BP</div>
-															<div class="col-xs-4 current-price">388.65</div>
-															<div class="col-xs-4 current-result">+0.58 <i class="fa fa-caret-up"></i></div>
-														</div>
-													</div>													
-													<div class="com-details">
-														<div class="row">
-															<div class="col-xs-4 com-name">Royal Ba...</div>
-															<div class="col-xs-4 current-price">318.25</div>
-															<div class="col-xs-4 current-result">+0.32 <i class="fa fa-caret-up"></i></div>
-														</div>
-													</div>
-													<div class="com-details">
-														<div class="row">
-															<div class="col-xs-4 com-name">Inmarsat</div>
-															<div class="col-xs-4 current-price">214.19</div>
-															<div class="col-xs-4 current-result">-0.43 <i class="fa fa-caret-down"></i></div>
-														</div>
-													</div>
-												</div>												
-											</div>
-										</div><!-- /.business-section -->
+										<?php include 'App/Views/Home/ads.php'; ?>
+										<!-- /.business-section -->
 										
 									</div><!--/.middle-content-->
 								</div>
@@ -370,32 +162,13 @@ require $root_url;
 					</div>
 					<div class="col-md-3 col-sm-4">
 						<div id="sitebar">
-							<div class="widget follow-us">
-								<h1 class="section-title title">Follow Us</h1>
-								<ul class="list-inline social-icons">
-									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-									<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-									<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-								</ul>
-							</div><!--/#widget-->
-							
-							<div class="widget">
-								<div class="add">
-									<a href="#"><img class="img-responsive" src="images/post/add/add3.jpg" alt="" /></a>
-								</div>
-							</div><!--/#widget-->
-							
+							<?php include 'App/Views/Utils/follow_us.php'; ?>
+							<!--/#widget-->
+							<?php include 'App/Views/Banner/home_first_sky.php'; ?>
 							<?php 
 							include 'App/Views/Article/recent_articles.php';
 							?>							
-							<div class="widget">
-								<div class="add">
-									<a href="#"><img class="img-responsive" src="images/post/add/add6.jpg" alt="" /></a>
-								</div>
-							</div><!--/#widget-->
-							
+							<?php include 'App/Views/Banner/home_second_sky.php'; ?>						
 							<div class="widget weather-widget">
 								<div id="weather-widget"></div>
 							</div><!--/#widget-->
@@ -601,49 +374,9 @@ require $root_url;
 		</div><!--/.container-->
 		<?php //include 'App/Views/Utils/twitter-feeds.php'; ?>
 		<!--/#twitter-feed-->
-		<div class="footer-widget">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="widget">
-							<h1 class="section-title title">About Us</h1>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-							<address>
-								<p>Address : 123 Gegrit, London, England</p>
-								<p>Call : +1234-222-3333</p>
-								<p>Email: <a href="#">info@newspress.com</a></p>
-							</address>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="widget">
-							<h1 class="section-title title">Flickr Gallery</h1>
-							<ul>
-								<li><a href="images/post/flicker/1.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/1.jpg" alt="" /></a></li>
-								<li><a href="images/post/flicker/2.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/2.jpg" alt="" /></a></li>
-								<li><a href="images/post/flicker/3.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/3.jpg" alt="" /></a></li>
-								<li><a href="images/post/flicker/4.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/4.jpg" alt="" /></a></li>
-								<li><a href="images/post/flicker/5.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/5.jpg" alt="" /></a></li>
-								<li><a href="images/post/flicker/6.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/6.jpg" alt="" /></a></li>
-								<li><a href="images/post/flicker/7.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/7.jpg" alt="" /></a></li>
-								<li><a href="images/post/flicker/8.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/8.jpg" alt="" /></a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="widget news-letter">
-							<h1 class="section-title title">Weekly NewsLetter</h1>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-							
-							<form action="#" method="post" id="subscribe-form" name="subscribe-form">
-								<input type="text" placeholder="Your E-mail" name="email">
-								<button type="submit" name="subscribe" id="subscribe" >Subscribe</button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/.footer-widget-->
+		<?php 
+		include_once 'App/Views/Utils/footer_widgets.php';
+		?><!--/.footer-widget-->
 	</div><!--/#main-wrapper--> 
 	<?php 
 	include_once 'App/Views/Utils/web_footer.php';

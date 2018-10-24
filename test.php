@@ -1,5 +1,6 @@
 <?php 
 require "classes_loader.php";
 
-var_dump($article->search_article("diamonds"));
+$data=($article->search_article("marina"));
+var_dump(reset($data));
 ?>

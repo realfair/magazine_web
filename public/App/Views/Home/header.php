@@ -138,97 +138,13 @@
 								<h2 class="section-title">Ikoranabuhanga</h2>
 								<ul class="list-inline">
 									<li><a href="listing?category=9">Mudasobwa</a></li>
-									<li><a href="#">Ibinyabiziga</a></li>
-									<li><a href="#">Telefoni</a></li>
-									<li><a href="#">Ibindi...</a></li>
+									<li><a href="listing?category=10">Ibinyabiziga</a></li>
+									<li><a href="listing?category=11">Telefoni</a></li>
 								</ul>
 							</div>
-							<div class="row">
-								<div class="col-sm-3">
-									<div class="post medium-post">
-										<div class="entry-header">
-											<div class="entry-thumbnail">
-												<img class="img-responsive" src="images/post/technology/6.jpg" alt="" />
-											</div>
-										</div>
-										<div class="post-content">								
-											<div class="entry-meta">
-												<ul class="list-inline">
-													<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 5, 2015 </a></li>
-													<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-													<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-												</ul>
-											</div>
-											<h2 class="entry-title">
-												<a href="news-details.html">Apple may be preparing for new Beats radio stations</a>
-											</h2>
-										</div>
-									</div><!--/post--> 
-								</div>
-								<div class="col-sm-3">
-									<div class="post medium-post">
-										<div class="entry-header">
-											<div class="entry-thumbnail">
-												<img class="img-responsive" src="images/post/technology/5.jpg" alt="" />
-											</div>
-										</div>
-										<div class="post-content">								
-											<div class="entry-meta">
-												<ul class="list-inline">
-													<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 5, 2015 </a></li>
-													<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-													<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-												</ul>
-											</div>
-											<h2 class="entry-title">
-												<a href="news-details.html">Why is the media so afraid of Facebook?</a>
-											</h2>
-										</div>
-									</div><!--/post--> 
-								</div>
-								<div class="col-sm-3">
-									<div class="post medium-post">
-										<div class="entry-header">
-											<div class="entry-thumbnail">
-												<img class="img-responsive" src="images/post/technology/4.jpg" alt="" />
-											</div>
-										</div>
-										<div class="post-content">								
-											<div class="entry-meta">
-												<ul class="list-inline">
-													<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 5, 2015 </a></li>
-													<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-													<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-												</ul>
-											</div>
-											<h2 class="entry-title">
-												<a href="news-details.html">Samsung Pay will support online shopping</a>
-											</h2>
-										</div>
-									</div><!--/post--> 
-								</div>
-								<div class="col-sm-3">
-									<div class="post medium-post">
-										<div class="entry-header">
-											<div class="entry-thumbnail">
-												<img class="img-responsive" src="images/post/technology/3.jpg" alt="" />
-											</div>
-										</div>
-										<div class="post-content">								
-											<div class="entry-meta">
-												<ul class="list-inline">
-													<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> Nov 5, 2015 </a></li>
-													<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
-													<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
-												</ul>
-											</div>
-											<h2 class="entry-title">
-												<a href="news-details.html">The best games for your phone</a>
-											</h2>
-										</div>
-									</div><!--/post--> 
-								</div>
-							</div>
+							<?php 
+							include 'App/Views/Home/tech_header.php';
+							?>
 						</div>
 					</div>
 				</li>
@@ -249,27 +165,20 @@
 								<div class="col-sm-3">
 									<h2>Amashusho</h2>
 									<ul>
-										<li><a href="#">GUkora amashusho</a></li>
-										<li><a href="#">Amashusho agezweho</a></li>
-										<li><a href="#">Amashusho meza</a></li>
-										<li><a href="#">Amashusho adasanzwe</a></li>
-										<li><a href="#">Amashusho y'igisha</a></li>
+										<li><a href="listing?category=33">GUkora amashusho</a></li>
+										<li><a href="listing?category=42">Amashusho agezweho</a></li>
+										<li><a href="listing?category=43">Amashusho meza</a></li>
+										<li><a href="listing?category=44">Amashusho adasanzwe</a></li>
+										<li><a href="listing?category=45">Amashusho y'igisha</a></li>
 									</ul>
 								</div>
 								<div class="col-sm-3">
 									<h2>Gufotora</h2>
 									<ul>
-										<li><a href="#">Amafoto agezweho</a></li>
-										<li><a href="#">Amafoto meza</a></li>
-										<li><a href="#">Amafoto adasanzwe</a></li>
-										<li><a href="#">Ibindi...</a></li>
+										<li><a href="listing?category=46">Amafoto agezweho</a></li>
+										<li><a href="listing?category=47">Amafoto meza</a></li>
+										<li><a href="listing?category=48">Amafoto adasanzwe</a></li>
 									</ul>
-								</div>
-								<div class="col-sm-3">
-									<h2>Inkuru iheruka</h2>
-									<div class="entry-thumbnail">
-										<img class="img-responsive" src="images/post/4.jpg" alt="" /> 
-									</div>												
 								</div>
 								<div class="col-sm-3">
 									<h2>Inkuru y'amashusho.</h2>
@@ -287,7 +196,7 @@
 			<ul>
 				<li class="search-icon"><i class="fa fa-search"></i></li>
 				<li class="dropdown user-panel">
-					<a href="javascript:void(0);"><i class="fa fa-user"></i></a>
+					<a href="https://www.instagram.com/redbluejd/" target="_blank"><i class="fa fa-instagram" ></i></a>
 				</li>
 			</ul>
 			<div class="search">
