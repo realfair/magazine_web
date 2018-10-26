@@ -5,11 +5,11 @@ $Posts=$article->ubucukumbuzi(3);
 	<h1 class="section-title title">Ubucukumbuzi</h1>	
 	<div class="world-nav cat-menu">         
 		<ul class="list-inline">                       
-			<li class="active"><a href="listing.html">Ubumenyamuntu</a></li>
-			<li><a href="listing.html">Ikoranabuhanga</a></li>
-			<li><a href="listing.html">Politiki</a></li>
-			<li><a href="listing.html">Ubukungu</a></li>
-			<li><a href="listing.html">Amateka</a></li>
+			<li class="active"><a href="#">Ubumenyamuntu</a></li>
+			<li><a href="#">Ikoranabuhanga</a></li>
+			<li><a href="#">Politiki</a></li>
+			<li><a href="#">Ubukungu</a></li>
+			<li><a href="#">Amateka</a></li>
 		</ul> 					
 	</div>
 	<div class="post">
@@ -18,6 +18,7 @@ $Posts=$article->ubucukumbuzi(3);
 		foreach ($Posts as $key => $post) {
 			$Posters=$article->get_article_poster($post['article_id']);
 			$views=$article->get_article_views($post['article_id']);
+			$comments_counter=$article->get_article_comments_counter($post['article_id']);
 			?>
 			<div class="entry-header">
 				<div class="entry-thumbnail">
@@ -36,7 +37,9 @@ $Posts=$article->ubucukumbuzi(3);
 						<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> <?php echo $function->string_date_format($post['validate_date']); ?></a></li>
 						<li class="views"><a href="#"><i class="fa fa-eye"></i>
 							<?php echo $views; ?></a></li>
-						<li class="comments"><i class="fa fa-comment-o"></i><a href="#">189</a></li>
+						<li class="comments"><i class="fa fa-comment-o"></i><a href="#">
+							<?php echo $comments_counter; ?>
+						</a></li>
 					</ul>
 				</div>
 				<h2 class="entry-title">

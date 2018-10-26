@@ -10,6 +10,7 @@ $Posts=$article->architecture(3);
 	foreach ($Posts as $key => $post) {
 		$Posters=$article->get_article_poster($post['article_id']);
 		$views=$article->get_article_views($post['article_id']);
+		$comments_counter=$article->get_article_comments_counter($post['article_id']);
 		?>
 		<div class="post medium-post">
 			<div class="entry-header">
@@ -29,7 +30,12 @@ $Posts=$article->architecture(3);
 						<li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> <?php echo $function->string_date_format($post['validate_date']); ?></a></li>
 						<li class="views"><a href="#"><i class="fa fa-eye"></i>
 							<?php echo $views; ?></a></li>
-						<li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
+						<li class="loves">
+							<a href="#">
+								<i class="fa fa-comment-o"></i>
+								<?php echo $comments_counter; ?>
+							</a>
+						</li>
 					</ul>
 				</div>
 				<h2 class="entry-title">

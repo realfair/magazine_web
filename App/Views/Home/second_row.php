@@ -3,6 +3,8 @@ $row_posts=$article->second_row();
 foreach ($row_posts as $key => $post) {
 	$Posters=$article->get_article_poster($post['article_id']);
 	$article_category=$article->get_article_category($post['category_id']);
+	$views=$article->get_article_views($post['article_id']);
+	$comments_counter=$article->get_article_comments_counter($post['article_id']);
 	$category_color="";
 	if($article_category=="IBYEGERANYO"){
 		$category_color="world";
@@ -39,10 +41,13 @@ foreach ($row_posts as $key => $post) {
 					<ul class="list-inline">
 						<li class="publish-date">
 							<i class="fa fa-clock-o"></i>
-							<a href="#"><?php echo $post['validate_date']; ?></a>
+							<a href="#">
+								<?php echo $function->string_date_format($post['validate_date']); ?>
+							</a>
 						</li>
-						<li class="views"><i class="fa fa-eye"></i><a href="#">15k</a></li>
-						<li class="loves"><i class="fa fa-heart-o"></i><a href="#">278</a></li>
+						<li class="views"><i class="fa fa-eye"></i><a href="#">
+							<?php echo $views; ?>
+						</a></li>
 					</ul>
 				</div>
 				<h2 class="entry-title">

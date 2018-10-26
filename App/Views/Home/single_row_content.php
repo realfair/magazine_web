@@ -3,6 +3,8 @@ $documentaries=$article->ibyegeranyo(6,false);
 foreach ($documentaries as $key => $post) {
 	$Posters=$article->get_article_poster($post['article_id']);
 	$article_category=$article->get_article_category($post['category_id']);
+	$views=$article->get_article_views($post['article_id']);
+	$comments_counter=$article->get_article_comments_counter($post['article_id']);
 	$category_color="";
 	if($article_category=="IBYEGERANYO"){
 		$category_color="world";
@@ -37,8 +39,10 @@ foreach ($documentaries as $key => $post) {
 			<div class="entry-meta">
 				<ul class="list-inline">
 					<li class="publish-date">
-						<a href="#"><i class="fa fa-clock-o"></i> <?php echo $post['validate_date']; ?></a></li>
-					<li class="views"><a href="#"><i class="fa fa-eye"></i>15k</a></li>
+						<a href="#"><i class="fa fa-clock-o"></i> 
+						<?php echo $function->string_date_format($post['validate_date']); ?></a></li>
+					<li class="views"><a href="#"><i class="fa fa-eye"></i>
+						<?php echo $views; ?></a></li>
 				</ul>
 			</div>
 			<h2 class="entry-title">

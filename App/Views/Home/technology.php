@@ -67,7 +67,7 @@ $Posts=$article->technology(3);
 									<?php 
 									foreach ($Posters as $key => $poster) {
 										?>
-									<img class="img-responsive" src="../assets/IMG/<?php echo $poster['filename']; ?>" alt="" />
+									<img class="img-responsive" src="access/assets/IMG/<?php echo $poster['filename']; ?>" alt="" />
 										<?php
 									}
 									?>

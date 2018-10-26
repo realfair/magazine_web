@@ -62,6 +62,7 @@ class Article extends Execute{
 		}
 		return $views;
 	}
+
 	public function update_article_views($article_id,$views){
 		$where=array("article_id"=>$article_id);
 		$array=array("views"=>$views);
@@ -201,7 +202,7 @@ class Article extends Execute{
 	}
 	public function second_row(){
 		$rows=$this->table_rows(Tables::articles());
-		$diff=$rows-4;
+		$diff=$rows-7;
 		$credentials=array("article_id"=>$diff);
 		$compare=array("status"=>Tables::publish_status());
 		$less=array("article_id"=>$rows);
@@ -229,7 +230,11 @@ class Article extends Execute{
 		return $this->select_clause_order_by(Tables::articles(),$credentials,"article_id",false);
 	}
 	//+++++++++++++++++++++++++++++++++++++GET CATEGORIES++++++++++++++++++++++++++
-
+	//get article comments counter
+	public function get_article_comments_counter($article_id){
+		$query="SELECT * FROM ".Tables::comments()." WHERE article_id=\"$article_id\" AND status='ACTIVE'";
+		return $this->rows($query);
+	}
 	public function ubucukumbuzi($limit){
 		$query="SELECT * FROM ".Tables::articles()." WHERE category_id=40 OR category_id=39 OR category_id=38 OR category_id=37 OR category_id=36 ORDER BY article_id DESC LIMIT ".$limit;
 		return $this->querying($query);
@@ -253,7 +258,25 @@ class Article extends Execute{
 		$query="SELECT * FROM ".Tables::articles()." WHERE category_id=28 OR category_id=29 OR category_id=30 OR category_id=31 OR category_id=41 AND status='PUBLISHED' ORDER BY article_id DESC LIMIT ".$limit;
 		return $this->querying($query);
 	}
-	
+	public function ubugeni($limit,$status){
+		$query="SELECT * FROM ".Tables::articles()." WHERE category_id=19 OR category_id=20 OR category_id=21 OR category_id=22 OR category_id=23 OR category_id=24 OR category_id=25 OR category_id=26 or category_id=27 AND status='PUBLISHED' ORDER BY article_id DESC";
+		if($status){
+			$query.=" LIMIT ".$limit;
+		}
+		return $this->querying($query);
+	}
+	public function popular_articles($limit,$status){
+		$query="SELECT * FROM ".Tables::articles()." ORDER BY views DESC LIMIT ".$limit;
+		return $this->querying($query);
+	}
+	public function getAuthors($limit,$status){
+		$query="SELECT * FROM ".Tables::users()." WHERE user_type=2 ORDER BY user_id DESC LIMIT ".$limit;
+		return $this->querying($query);
+	}
+	public function getAuthorArticles($author_id,$limit){
+		$query="SELECT * FROM ".Tables::articles()." WHERE author_id=\"$author_id\" ORDER BY article_id DESC LIMIT ".$limit;
+		return $this->querying($query);
+	}
 	############################ END OF PUBLIC WEBSITE SECTION ##############################
 }
 $article=new Article();

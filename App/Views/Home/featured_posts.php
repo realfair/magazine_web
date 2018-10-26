@@ -5,6 +5,7 @@ foreach ($Posts as $key => $post) {
 	$Posters=$article->get_article_poster($post['article_id']);
 	$article_category=$article->get_article_category($post['category_id']);
 	$views=$article->get_article_views($post['article_id']);
+	$comments_counter=$article->get_article_comments_counter($post['article_id']);
 	$category_color="";
 	if($article_category=="IBYEGERANYO"){
 		$category_color="world";
@@ -48,8 +49,12 @@ foreach ($Posts as $key => $post) {
 						<i class="fa fa-eye"></i>Yasuwe: 
 						<a href="#"><?php echo $views; ?></a>
 					</li>
-					<li class="loves"><i class="fa fa-heart-o"></i><a href="#">278</a></li>
-					<li class="comments"><i class="fa fa-comment-o"></i><a href="#">189</a></li>
+					<li class="comments">
+						<i class="fa fa-comment-o"></i>Yavuzweho:
+						<a href="#">
+							<?php echo $comments_counter; ?>
+						</a>
+					</li>
 				</ul>
 			</div>
 			<h2 class="entry-title">

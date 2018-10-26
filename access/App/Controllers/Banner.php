@@ -23,6 +23,7 @@ class Banner extends Execute{
 	public function get_public_banners($advert_id){
 		$credentials=array("advert_id"=>$advert_id,"status"=>"ACTIVE");
 		return $this->select_clause_order_by(Tables::banners(),$credentials,"banner_id",false);
-	}}
+	}
+}
 $banner=new Banner();
 ?>

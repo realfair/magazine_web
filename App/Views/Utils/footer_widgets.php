@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="widget">
-					<h1 class="section-title title">About Us</h1>
+					<h1 class="section-title title">Ibyerekeye RedBlue Jd</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 					<address>
 						<p>Address : 123 Gegrit, London, England</p>
@@ -14,7 +14,7 @@
 			</div>
 			<div class="col-sm-4">
 				<div class="widget">
-					<h1 class="section-title title">Flickr Gallery</h1>
+					<h1 class="section-title title">Amafoto Agezweho</h1>
 					<ul>
 						<li><a href="images/post/flicker/1.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/1.jpg" alt="" /></a></li>
 						<li><a href="images/post/flicker/2.jpg" class="image-link"><img class="img-responsive" src="images/post/flicker/2.jpg" alt="" /></a></li>

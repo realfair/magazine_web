@@ -1,9 +1,8 @@
 <?php 
-$Posts=$article->get_featured_posts();
-
+$Posts=$article->popular_articles(6,false);
 ?>
 <div class="widget">
-	<h1 class="section-title title">Inkuru ziheruka!</h1>
+	<h1 class="section-title title">Izakunzwe cyane!</h1>
 	<ul class="post-list">
 	<?php 
 	foreach ($Posts as $key => $post) {

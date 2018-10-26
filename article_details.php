@@ -23,6 +23,7 @@ if(isset($_GET['id']) && isset($_GET['title'])){
 		//update article views
 		$article_views=$article->get_article_views($article_id);
 		$article_views+=1;
+		$comments_counter=$article->get_article_comments_counter($article_id);
 		$update_views=$article->update_article_views($article_id,$article_views);
 		if(!$update_views){
 			backHome();
@@ -109,7 +110,7 @@ function backHome(){
 															</li>
 															<li class="comments">
 																<i class="fa fa-comment-o"></i>
-																<a href="#">Yavuzweho:</a>
+																<a href="#">Yavuzweho:<?php echo $comments_counter; ?></a>
 															</li>
 														</ul>
 													</div>
