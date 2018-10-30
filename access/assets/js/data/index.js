@@ -274,6 +274,12 @@ $(document).ready(function(){
 	  }
  });
 
+   $("#txt_filter").keydown(function(e){
+   		alert(this.value);
+   });
+   $("#btn_filter").click(function(){
+   	alert();
+   });
  function load_documents(current_article){
  	$.post("get_documents",{
  		article:current_article

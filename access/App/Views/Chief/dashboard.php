@@ -108,6 +108,14 @@
                     		Recent Published Articles
                     	</font>
                     </h4>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" id="txt_filter" class="form-control" placeholder="Filter Result Set">
+                            <span class="input-group-btn">
+                            <button id="btn_filter" type="button" class="btn waves-effect waves-light btn-primary"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </div>
                     <?php 
                     $recent_articles=$article->get_articles_by_status('PUBLISHED');
                     ?>
@@ -117,7 +125,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Title</th>
-                                    <th>Category</th>
+                                    <!-- <th>Category</th> -->
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -150,9 +158,9 @@
                                                 </a>
 	                                        </h5>
 	                                    </td>
-	                                    <td>
+<!-- 	                                    <td>
                                          <?php echo $category_name; ?>   
-                                        </td>
+                                        </td> -->
 	                                    <td>
                                          <?php 
                                          if($value['status']=='PUBLISHED'){
@@ -217,7 +225,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Title</th>
-                                    <th>Category</th>
+                                    <!-- <th>Category</th> -->
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -250,9 +258,9 @@
                                                 </a>
 	                                        </h5>
 	                                    </td>
-	                                    <td>
+	                                    <!-- <td>
                                          <?php echo $category_name; ?>   
-                                        </td>
+                                        </td> -->
 	                                    <td>
                                          <?php 
                                          if($value['status']=='PUBLISHED'){

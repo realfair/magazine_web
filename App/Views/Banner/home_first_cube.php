@@ -4,7 +4,7 @@ $counter=0;
 if(count($cube)>0){
 	foreach ($cube as $key => $value) {
 		$image_url="access/assets/banners/".$value['filename'];
-		if($counter<=1){
+		if($counter==0){
 			?>
 			<div class="col-md-3 visible-md visible-lg">
 				<div class="add featured-add">

@@ -38,8 +38,8 @@
                             <div class="m-t-40 account-pages">
                                 <div class="text-center account-logo-box">
                                     <h2 class="text-uppercase">
-                                        <a href="index.html" class="text-success">
-                                            <span><img src="assets/images/logo.png" alt="" height="36"></span>
+                                        <a href="access" class="text-success">
+                                            <span><img src="assets/images/logo.png" alt="" height="56"></span>
                                         </a>
                                     </h2>
                                     <!--<h4 class="text-uppercase font-bold m-b-0">Sign In</h4>-->
@@ -89,7 +89,7 @@
                             </div>
                             <div class="row m-t-50">
                                 <div class="col-sm-12 text-center">
-                                    <p class="text-muted">Don't have an account? <a href="page-register.html" class="text-primary m-l-5"><b>Sign Up</b></a></p>
+                                    <p class="text-muted">Copyright <?php echo date('Y'); ?> All right Reserved to RedBlueJd<a href="../index" class="text-primary m-l-5"><b>Back Home</b></a></p>
                                 </div>
                             </div>
 

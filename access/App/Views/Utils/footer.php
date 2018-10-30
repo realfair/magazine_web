@@ -1,3 +1,3 @@
             <footer class="footer text-right">
-                <?php echo date('Y'); ?> © RedBlueJD by Niel.
+                Copyright </a>&copy; <?php echo date('Y'); ?> All right Reserved to RedBueJD.
             </footer>
