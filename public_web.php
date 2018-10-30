@@ -7,7 +7,7 @@ require $root_url;
 <head>
 	<?php include 'App/Views/Home/meta.php'; ?>	
 	<!--title-->
-    <title>Amakuru RedBlue Jd</title>
+    <title>RedBlueJd</title>
 	<?php include 'App/Views/Home/stylesheet.php'; ?>	
 </head><!--/head-->
 <body>
