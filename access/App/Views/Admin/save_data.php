@@ -128,6 +128,14 @@ if(isset($_POST['input'])){
 			}else{
 				echo $error;
 			}
+		}elseif($action=="delete_banner"){
+			$banner_id=$function->sanitize($input[1]);
+			$save_status=$banner->change_banner_status($banner_id,"DELETED");
+			if($save_status){
+				echo $success;
+			}else{
+				echo $error;
+			}
 		}
 		elseif($action=="change_article_status"){
 			//grab inputs

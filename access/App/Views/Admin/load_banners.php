@@ -45,7 +45,7 @@ function backHome(){
             <div class="col-lg-12">
                 <div class="card-box">
                     <h4 class="header-title m-t-0 m-b-30">Available Banners Categories</h4>
-                    <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal">ADD NEW BANNER</button>
+                    <!-- <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal">ADD NEW BANNER</button> -->
                     <?php include 'add_banner.php'; ?>
                     <?php 
                     if(isset($_GET['status']) && $_GET['status']=='success'){
@@ -55,6 +55,35 @@ function backHome(){
                     <?php 
                     if(count($ads_banners)>0){
                     	?>
+<div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                    <h4 class="modal-title" id="myModalLabel">Modal Heading</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h4>Text in a modal</h4>
+                                                    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+                                                    <hr>
+                                                    <h4>Overflowing text to show scroll behavior</h4>
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                                    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary waves-effect waves-light">Save changes</button>
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div>
                     <div class="table-responsive">
                         <table class="table table table-hover m-0">
                             <thead>
@@ -68,32 +97,34 @@ function backHome(){
                             	<?php
                                 $count=1;
                             	foreach ($ads_banners as $key => $category) {
-                            		?>
-	                                <tr>
-	                                    <th>
-                                            <img src="assets/banners/<?php echo $category['filename']; ?>" style="width:200px;">
-	                                    </th>
-	                                    <td>
-                                         <?php 
-                                         if($category['status']=='ACTIVE'){
-                                            ?>
-                                            <span class="badge badge-info">
-                                                <?php echo $category['status']; ?>
-                                            </span>
-                                            <?php
-                                         }
-                                         ?>   
-                                        </td>
-                                        <td>
-                                            <a href="?action=banners?ads=<?php echo $category['advert_id']; ?>" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">
-                                                <i class="fa fa-eye"></i>
-                                            </a>
-                                            <button class="btn btn-icon waves-effect waves-light btn-danger m-b-5">
-                                                <i class="fa fa-remove"></i>
-                                            </button>
-                                        </td>
-	                                </tr>
-                            		<?php
+                                    if($category['status']!='DELETED'){
+                                        ?>
+                                        <tr>
+                                            <th>
+                                                <img src="assets/banners/<?php echo $category['filename']; ?>" style="width:200px;">
+                                            </th>
+                                            <td>
+                                             <?php 
+                                             if($category['status']=='ACTIVE'){
+                                                ?>
+                                                <span class="badge badge-info">
+                                                    <?php echo $category['status']; ?>
+                                                </span>
+                                                <?php
+                                             }
+                                             ?>   
+                                            </td>
+                                            <td>
+                                                <a action="<?php echo $category['banner_id']; ?>" class="btn btn-primary waves-effect waves-light btn_update_banner">
+                                                    <i class="fa fa-pencil"></i>
+                                                 </a>
+                                                <a action="<?php echo $category['banner_id']; ?>" class="btn btn-icon waves-effect waves-light btn-danger m-b-5 btn_remove_banner">
+                                                    <i class="fa fa-remove"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                    }
                                     $count++;
                             	}
                             	?>

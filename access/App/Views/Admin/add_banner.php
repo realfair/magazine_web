@@ -15,7 +15,9 @@
                                     Please Choose Valid Image in format of Jpg,gif or png Only.
                                 </label>
                                 <input id="ads_id" type="hidden" name="ads_id" value="<?php echo $ads; ?>">
+                                <input id="banner_id" type="hidden" name="banner_id" value="">
                                 <input id="file" type="file" class="form-control" name="file" required="">
+                                
                                 <img src="" id="preview" style="width:120px;">
                             </div>
                             <center>

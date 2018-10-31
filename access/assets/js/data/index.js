@@ -127,6 +127,21 @@ $(document).ready(function(){
 			saveData(input,"dashboard?action=comments");
 		}
 	});
+	//delete banner
+	$(".btn_remove_banner").click(function(){
+		var action=$(this).attr("action");
+		input[0]="delete_banner";
+		input[1]=action;
+		if(confirm("You Are about to Delete This Banner No Undone Actions.")){
+			saveData(input,"dashboard?action=ads");
+		}
+	});
+	$("a.btn_update_banner").click(function(){
+		var action=$(this).attr("action");
+		$("#banner_id").val(action);
+		$("#myModal").modal();
+	});
+	
 	//upload banner
 	$("#file").on("change",function(){
 		var file=document.getElementById("file").files[0];
@@ -150,7 +165,9 @@ $(document).ready(function(){
 	$("#frm_add_banner").submit(function(e){
 		e.preventDefault();
 		var ads_id=$("#ads_id").val();
+		var banner=$("#banner_id").val();
 		var url='save_banner';
+		
        $.ajax({  
             url:url,  
             method:"POST",  
@@ -168,6 +185,7 @@ $(document).ready(function(){
             }  
        });
 	});
+
 	$("#poster").on("change",function(){
 		var file=document.getElementById("poster").files[0];
 		var name = document.getElementById("poster").files[0].name;

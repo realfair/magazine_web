@@ -31,7 +31,7 @@
             <div class="col-lg-12">
                 <div class="card-box">
                     <h4 class="header-title m-t-0 m-b-30">Recent Categories</h4>
-                    <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal">ADD ARTICLE CATEGORY</button>
+                    <!-- <button class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#myModal">ADD ARTICLE CATEGORY</button> -->
                     <?php include 'add_category.php';?>
                     <?php 
                     if(isset($_GET['status']) && $_GET['status']=='success'){
@@ -83,12 +83,12 @@
                                          ?>   
                                         </td>
                                         <td>
-                                            <button class="btn btn-icon waves-effect waves-light btn-primary m-b-5">
+<!--                                             <button class="btn btn-icon waves-effect waves-light btn-primary m-b-5">
                                                 <i class="fa fa-pencil"></i>
-                                            </button>
-                                            <button class="btn btn-icon waves-effect waves-light btn-danger m-b-5">
+                                            </button> -->
+<!--                                             <button class="btn btn-icon waves-effect waves-light btn-danger m-b-5">
                                                 <i class="fa fa-remove"></i>
-                                            </button>
+                                            </button> -->
                                         </td>
 	                                </tr>
                             		<?php
